@@ -1,0 +1,1368 @@
+Normal Rice | Type: Normal rice |Size of units: 1 |Unit of Measure: kg  |Material:  |Brand:  |Made in India	22006020
+"Basmathi Rice | Type: Basmathi rice |
+Size of units: 1 |
+Unit of Measure: kg |
+Material: box |
+Brand: Wavestar |
+Made in "	22007025
+"Basmathi Rice | Type: Basmathi rice |
+Size of units: 1 |
+Unit of Measure: kg |
+Material: blue packet |
+Brand: Elite |
+Made in "	22007044
+"Wheat Flour | Type: Wheat flour|
+Size of units: 1 |
+Unit of Measure: kg |
+Material:  |
+Brand:  |
+Made in India"	22009020
+"Whole Wheat Flour | Type: Chakki atta |
+Size of units: 1 |
+Unit of Measure: kg |
+Material: Red packet |
+Brand: Al bakers |
+Made in UAE"	22010039
+"Whole Wheat Flour | Type: Chakki Fresh Atta 
+Size of units: 1 kg 
+Unit of Measure: kg
+Material: white packet 
+Brand: Lucky 
+Made in "	22090007
+"Bread(sliced, loaf) | Type: White bread large
+Size of units: 1
+Unit of Measure: 
+Material: 
+Brand: Alcyon
+Made in "	22012060
+"Bread(sliced, loaf) | Type: Brown bread big
+Size of units: 1
+Unit of Measure: 
+Material: 
+Brand: Alcyon
+Made in "	22012061
+"Frozen Paratta | Type: Home Style paratha
+Size of units: 400g
+Unit of Measure: 5 pieces
+Material: Packet
+Brand: Mezban
+Made in Pakistan"	22014026
+"Cream crackers | Type: creeam crackers
+Size of units: 200
+Unit of Measure: gram
+Material: 
+Brand: navigable
+Made in  chaina"	22015039
+"Cream crackers | Type: Cream crackers
+Size of units: 130
+Unit of Measure: gram
+Material: 
+Brand: malban
+Made in "	22090012
+"Marie Biscuits | Type: Marie biscuits 
+Size of units: 400
+Unit of Measure: g
+Material: Plastic packet
+Brand: CBL Munchee
+Made in "	22016032
+"Other crackers | Type: Original
+Size of units: 153
+Unit of Measure: g
+Material: 
+Brand: Chipsmore
+Made in Malaysia"	22017030
+"Other crackers | Type: Lemon puff
+Size of units: 100
+Unit of Measure: g
+Material: packet
+Brand: Munchee
+Made in Sri Lanka"	22017031
+"Hard buns, Faaroshi, hikki banas | Type: Faaroshi big
+Size of units: 
+Unit of Measure: 
+Material: 
+Brand: Alcyon
+Made in "	22018018
+"Packet Cakes | Type: Chocolate layer cake
+Size of units: 35
+Unit of Measure: g
+Material: packet
+Brand: Apollo
+Made in Malaysia"	22019023
+"Corn flakes | Type: Real honey crunch
+Size of units: 300
+Unit of Measure: g
+Material: box
+Brand: Kellogs
+Made in India"	22021022
+"Chocos | Type: chocos moon & stars
+Size of units: 414
+Unit of Measure: gram
+Material: pouch
+Brand: keloggs
+Made in "	22022038
+"Chocos | Type: Chocos
+Size of units: 715
+Unit of Measure: g
+Material: 
+Brand: kellogs
+Made in "	22090020
+"Oats | Type: Rolled oats
+Size of units: 400
+Unit of Measure: g
+Material: red packet
+Brand: Kellogs
+Made in Nepal"	22023021
+"Pasta | Type: Macaroni
+Size of units: 500
+Unit of Measure: g
+Material: 
+Brand: San Remo
+Made in Philipines"	22025022
+"Noodles | Type: Curry noodles
+Size of units: 80
+Unit of Measure: g
+Material: packet
+Brand: Mamee
+Made in Malaysia"	22026029
+"Cake mix | Type: Super moist triple chocolate fudge
+Size of units: 432g
+Material: box
+Brand: Betty Crocker
+Made in Minneapolis"	22028029
+"Cake mix | Type: Cake mix
+Size of units: 420
+Unit of Measure: g
+Material: 
+Brand: Kenton
+Made in "	22090025
+"Cake mix | Type: Super moist stawberry cake
+Size of units: 432g
+Material: box
+Brand: Betty Crocker
+Made in Minneapolis"	22090026
+"Frozen Beef | Type:  Chunk beef 
+Size of units: 900
+Unit of Measure: g
+Material: packet
+Brand: Allana
+Made in India"	22031021
+"Frozen Chicken | Type: Whole chicken
+Size of units: 1100
+Unit of Measure: g
+Material: 
+Brand: Seara
+Made in "	22032023
+"Sausage | Type: chicken franks original
+Size of units: 340
+Unit of Measure: g
+Material: yellow packet
+Brand: Doux
+Made in France"	22034030
+"Reef Fish | Type: Reef fish  (Raiy Mas) 
+Size of units: 1
+Unit of Measure: kg 
+Material: Vaccum
+Code: KF0015"	22038004
+"Frozen Seafood | Type: Frozen Seafood mix
+Size of units: 500
+Unit of Measure: g
+Material: packet
+Brand: Eastco
+Made in Local                                       "	22040015
+"Dried fish (Hikimas) | Type: Hikimas
+Size of units: 25
+Unit of Measure: g
+Material: blue packet
+Brand: Maldives fish
+Made in Local"	22042033
+"Smoked Fish | Type: Valhomas
+Size of units: 1
+Unit of Measure: kg 
+Material: Vaccum
+Brand: Enzi
+Made in Local "	22043021
+"Fish paste (Rihaa Kuru) | Type: Theluli rihaakuru
+Size of units: 400
+Unit of Measure: ml
+Material: glass bottle
+Brand: Kulhimeeru
+Made in Maldives"	22045037
+"Fish paste (Rihaa Kuru) | Type: 
+Size of units: 
+Unit of Measure: 
+Material: 
+Brand: 
+Made in "	22090035
+"Thelli faiy | Type: Masfaiy
+Size of units: 100
+Unit of Measure: g
+Material: glass
+Brand: Kulhimeeru
+Made in Local"	22046018
+"Thelli faiy | Type: Thelulifaiy
+Size of units: 170
+Unit of Measure: g
+Material: packet
+Brand: Murangafai
+Made in Local"	22046019
+"Thelli faiy | Type: Thelulifaiy masala
+Size of units: 100
+Unit of Measure: g
+Material: packet
+Brand: Heyloo foods
+Made in Local"	22090038
+"Masmirus | Type: Masmirus
+Size of units: 100
+Unit of Measure: g
+Material: glass
+Brand: Masmirus
+Made in Local"	22047022
+"Canned fish | Type: Tuna chunks in oil
+Size of units: 180
+Unit of Measure: g
+Material: can 
+Brand: Fasmeeru Felivaru
+Made in Local"	22049031
+"Canned fish | Type: Tuna chunks in brine
+Size of units: 180
+Unit of Measure: g
+Material: can 
+Brand: Fasmeeru Felivaru
+Made in Local"	22049032
+"Condensed Milk | Type: Condensed milk
+Size of units: 380
+Unit of Measure: g
+Material: can
+Brand: Double peach
+Made in Singapore"	22052035
+"Condensed Milk | Type: milk maid Condensed Milk 
+Size of units: 510
+Unit of Measure: gram
+Material: 
+Brand: Nestle
+Made in "	22090043
+"Condensed Milk | Type: Sweetened Condensed milk
+Size of units: 380
+Unit of Measure: g
+Material: can
+Brand: F & N
+Made in Singapore"	22052036
+"Milk Powder | Type: Fullcream milk powder
+Size of units: 900
+Unit of Measure: g
+Material: can
+Brand: Coast
+Made in Oman"	22053032
+"Coconut cream | Type: Coconut milk
+Size of units: 500
+Unit of Measure: ml
+Material: packet
+Brand: Aroy-D
+Made in Thailand"	22054022
+"Cheese  | Type: Cheddar
+Size of units: 190 
+Unit of Measure: g
+Material: can 
+Brand: Kraft
+Made in Bahrain"	22056036
+"Cheese  | Type: Spread cheese
+Size of units: 140
+Unit of Measure: g
+Material: glass cup
+Brand: Salim
+Made in UAE"	22056037
+"Yoghurt | Type: Natilas Vanilla Pudding
+Size of units: 125
+Unit of Measure: g
+Material: Yellow cup
+Brand: Pascual
+Made in Spain"	22058039
+"Yoghurt | Type: Natural plain
+Size of units: 125
+Unit of Measure: g
+Material: Yellow cup
+Brand: Pascual
+Made in Spain"	22090050
+"Milo powder | Type: Milo drink powder
+Size of units: 400
+Unit of Measure: g
+Material: can
+Brand: Nestle
+Made in Singapore"	22060022
+"Milk packet flavoured or unflavoured | Type: Full cream milk
+Size of units: 1
+Unit of Measure: L
+Material: packet
+Brand: Devondale
+Made in Australia"	22061073
+"Milk packet flavoured or unflavoured | Type: Milo drink 
+Size of units: 180
+Unit of Measure: ml
+Material: Packet
+Brand: Nestle
+Made in Sri Lanka"	22061075
+"Eggs | Type: White egg
+Size of units: 1
+Unit of Measure: pcs
+Material: 
+Brand: 
+Made in "	22065022
+"Olive Oil | Type: Extra virgin olive oil
+Size of units: 500
+Unit of Measure: ml
+Material: glass
+Brand: Feudo Verde
+Made in Spain"	22068037
+"Olive Oil | Type: Olive Oil
+Size of units: 500
+Unit of Measure:ml 
+Material: 
+Brand: Rs pomace
+Made in "	22090056
+"Cooking Oil  | Type: Cooking oil
+Size of units: 2
+Unit of Measure: L
+Material: plastic
+Brand: Filma
+Made in Indonesia"	22069030
+"Cooking Oil  | Type: Cooking Oil 
+Size of units: 2
+Unit of Measure: liters
+Material: 
+Brand: sunflower oil
+Made in "	22090058
+"Cooking Oil  | Type: Sunflower oil
+Size of units: 1.8
+Unit of Measure: Ltr
+Material: Bottle
+Brand: Safya
+Made in Turkey"	22069038
+"Butter | Type: salted butter
+Size of units: 188
+Unit of Measure: g
+Material: foil
+Brand: Anchor
+Made in UAE"	22071032
+"Butter | Type: unsalted butter
+Size of units: 250
+Unit of Measure: g
+Material: foil
+Brand: Oldenburger
+Made in UAE"	22071033
+"Butter | Type: 
+Size of units: 
+Unit of Measure: 
+Material: 
+Brand: 
+Made in "	22090062
+"Bananas | Type: Banana
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22075014
+"Mango | Type: Mango
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22076012
+"Papaya/ Falho | Type: Papaya
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22077010
+"Passion fruit | Type: Passion fruit
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22079019
+"Coconut (dry nut), Kaashi | Type: Coconut medium
+Size of units: 1
+Unit of Measure: pcs
+Material: 
+Brand: 
+Made in "	22080013
+"Lime | Type: Limes
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22082022
+"Oranges | Type: Fresh orange
+Size of units: 1
+Unit of Measure: pcs
+Material: 
+Brand: 
+Made in "	22083022
+"Apples | Type: Red apple
+Size of units: 1
+Unit of Measure: pcs
+Material: 
+Brand: 
+Made in "	22085030
+"Apples | Type: Green apple
+Size of units: 1
+Unit of Measure: pcs
+Material: 
+Brand: 
+Made in "	22085031
+"Grapes | Type: Red grapes
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22087016
+"Watermelon/ karaa | Type: Watermelon
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22088012
+"Dates- Dried | Type: Date
+Size of units: 250
+Unit of Measure: g
+Material: Foam Tray
+Brand: Royal deglet Nour
+Made in "	22090002
+"Dates- Dried | Type: sundried khalas dates
+Size of units: 800 g
+Unit of Measure: g
+Material: Foam Tray
+Brand: Royal 
+Made in "	22090075
+"Lettuce | Type: Lettuce (local) 
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in Local"	22093016
+"Green Chilly | Type: Green chilli
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22095019
+"Githeyo Mirus | Type: Githeyo mirus
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22096021
+"Cucumber | Type: Cucumber (chinese)
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22097022
+"Egg plant, bashi | Type: Purple eggplant
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22098019
+"Tomato | Type: Tomato 
+Size of units: 1
+Unit of Measure: kg
+Material: sea frieght
+Brand: 
+Made in "	22099022
+"Pumpkin | Type: Pumpkin
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22100014
+"Capsicum  | Type: Capsicum
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22101022
+"Beans, Tholhi | Type: Beans
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22104022
+"Carrot | Type: Carrot
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22106022
+"Garlic | Type: Garlic
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22107022
+"Onion | Type: Onion
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22108022
+"Potatoes | Type: Brown potato
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22110022
+"Potatoes | Type: White potato
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22110023
+"Sweet potatoes | Type: Red sweet potato
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22111018
+"Mugu, Dhal Red,  | Type: Red dhal
+Size of units: 500
+Unit of Measure: g
+Material: 
+Brand: 
+Made in "	22113039
+" Yellow Mugu | Type: Yellow dhal
+Size of units: 500
+Unit of Measure: g
+Material: 
+Brand: 
+Made in "	22113040
+"Baked beans canned | Type: Baked beans
+Size of units: 425
+Unit of Measure: g
+Material: Tin
+Brand: Fresh
+Made Malaysia"	22115028
+"Tomato paste | Type: Tomato paste
+Size of units: 400
+Unit of Measure: g
+Material: can
+Brand: Safa
+Made in "	22116029
+"Sugar-White | Type: White sugar
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22119020
+"Diabetic sugar | Type: stevia sweetener
+Size of units: 125
+Unit of Measure: gram
+Material: box
+Brand: tropicana slim
+Made in "	22121031
+"Diabetic sugar | Type: Sweetner liquid
+Size of units: 20
+Unit of Measure: ml 
+Material: 
+Brand: Huxol
+Made in "	22090097
+"Honey | Type: Pure honey
+Size of units: 500
+Unit of Measure: g
+Material: plastic
+Brand:Superchef
+Made in India"	22123036
+"Honey | Type: Classic
+Size of units: 400 
+Unit of Measure: g
+Material: 
+Brand: swiss 
+Made in "	22090099
+"Peanut butter | Type: Peanut Butter
+Size of units: 350
+Unit of Measure: g 
+Material: Bottle with gold cap
+Brand: Gurmex Plus
+Made in Turkey"	22125029
+"Peanut butter | Type: Peanut butter
+Size of units: 340
+Unit of Measure: g
+Material: Blue label 
+Brand: Giza
+Made in "	22090101
+"Chocolate Bars, crumpy,nutella | Type: Toblerone
+Size of units: 100 g
+Unit of Measure: g
+Material: 
+Brand: Toblerone
+Made in Swiserland"	22127085
+"Chocolate Bars, crumpy,nutella | Type: Nutella
+Size of units: 350
+Unit of Measure: g
+Material: glass
+Brand: Fererro Rocher
+Made in Sri Lanka"	22127067
+"Ice cream | Type: chocolate Ice cream
+Size of units: 1
+Unit of Measure: L
+Material: brown container
+Brand: Elephant House
+Made in "	22129028
+"Cup Noodles | Type: Oriental Beef cup
+Size of units: 70
+Unit of Measure: g
+Material: cup
+Brand: Mama
+Made in Thailand"	22132021
+"Baby milk powder | Type: Lactogen 1
+Size of units: 350
+Unit of Measure: g
+Material: blue box
+Brand: Nestle
+Made in Philipines"	22134023
+"Baby food | Type: Mixed fruit with milk
+Size of units: 250
+Unit of Measure: g
+Material: 
+Brand: Nestle
+Made Malaysia"	22135034
+"Baby food | Type: Beef stew with carrot
+Size of units: 120
+Unit of Measure: g
+Material: box
+Brand: Promina
+Made in"	22135050
+"Soya sauce | Type: Dark soy sauce
+Size of units: 640
+Unit of Measure: ml
+Material: plastic
+Brand: Elephant 
+Made in Singapore"	22137021
+"Oyster Sauce  | Type: Tiram oyster
+Size of units: 340
+Unit of Measure: ml
+Material: glass
+Brand: Maggi
+Made in Malaysia"	22138022
+"Tomato Sauce  | Type: Ketchup tomato
+Size of units: 325
+Unit of Measure: g
+Material: Glass
+Brand: Maggi
+Made in Malaysia"	22139024
+"Chilli Sauce | Type: Sos chilli
+Size of units: 340
+Unit of Measure: g
+Material: glass
+Brand: Maggi
+Made in Malaysia"	22140025
+"Chill and Garlic Sauce  | Type: Chilli and garlic
+Size of units: 304
+Unit of Measure: g
+Material: glass
+Brand: Maggi
+Made in Malaysia"	22141021
+"Salt | Type: Salt
+Size of units: 500
+Unit of Measure: g
+Material: Box
+Brand: Light star brand
+Made in Thailand"	22142026
+"Ginger | Type: Ginger
+Size of units: 1
+Unit of Measure: kg
+Material: 
+Brand: 
+Made in "	22144022
+"Dried Chilli Packed | Type: Dried chilli 
+Size of units: 250
+Unit of Measure: g
+Material: Finesse isha moon
+Brand: 
+Made in "	22145017
+"Curry Powder Packed | Type: chicken or meat curry
+Size of units: 100
+Unit of Measure: gram
+Material: 
+Brand: sarbak kari ayam
+Made in 
+Code:"	22146040
+"curry leave, Hikandi faiy | Type: Hikandhi faiy
+Size of units: 1
+Unit of Measure: roll
+Material: 
+Brand: 
+Made in "	22148022
+"Pandan leave, Raaba faiy | Type: Pandan leaves
+Size of units: 1
+Unit of Measure: loose
+Material: 
+Brand: 
+Made in "	22149022
+"Chicken ring & alike | Type: Chicken ring
+Size of units: 14
+Unit of Measure: g
+Material: packet
+Brand: Oriental
+Made in Malaysia"	22151018
+"Chicken ring & alike | Type: 
+Size of units: 
+Unit of Measure: 
+Material: 
+Brand: 
+Made in "	22090121
+"Ready made Fruit Juices  | Type: Mango juice
+Size of units: 180
+Unit of Measure: ml
+Material: packet
+Brand: Lacnor
+Made in UAE"	21155023
+"Tang Juice & alike | Type: Mandarine juice powder
+Size of units: 750
+Unit of Measure: g
+Material: plastic
+Brand: Fruizy
+Made in India"	22156048
+"Tang Juice & alike | Type: Apple
+Size of units: 1
+Unit of Measure: Liter
+Material: 
+Brand: Lacnor
+Made in "	22090124
+"Tang Juice & alike | Type: Mixed mango 
+Size of units: 840
+Unit of Measure: ml
+Material: glass
+Brand: Sunquick
+Made in "	22156049
+"Coffee | Type: Classic 
+Size of units: 100
+Unit of Measure: g
+Material: glass
+Brand: Nescafe 
+Made in Russia"	22159024
+"Coffee | Type: Gold
+Size of units: 100
+Unit of Measure: g
+Material: glass
+Brand: Nescafe
+Made in Russia"	22159025
+"Coffee mix(3 in 1 & alike) | Type: Instant foffee mix
+Size of units: 45
+Unit of Measure: sct
+Material: 
+Brand: Ye Ye
+Made in Malaysia"	22160021
+"Tea bags | Type: Cylon tea
+Size of units: 50 pcs
+Unit of Measure: 100 g
+Material: box
+Brand: Dilmah
+Made in Sri Lanka"	22163029
+"Mineral Water | Type: Mineral water 
+Size of units: 1.5
+Unit of Measure: L
+Material: plastic
+Brand: Life 
+Made in "	22166024
+"Carbonated soft drinks | Type: Coca Cola
+Size of units: 500
+Unit of Measure: ml
+Material: plastic
+Brand: Coca Cola
+Made in Maldives "	22169023
+"Energy Drinks  | Type: Energy drink
+Size of units: 250
+Unit of Measure: ml
+Material: can 
+Brand: Redbull 
+Made in Austria"	22172021
+"Men's long pants | Type: Official pants
+Size of unit: 28 
+Unit of measure:  black
+Other specification:
+Brand: UniQLo
+Made in: 
+Code: PNT005"	22192006
+"Mens Jeans | Type: Jeans 
+Size of unit: 32
+Unit of measure:  
+Other specification: Black jeans
+Brand: UniQLo
+Made in: 
+Code: "	22193004
+"Men's shorts | Type: Casual wear shorts
+Size of unit: 28
+Unit of measure:  
+Other specification: grey colour
+Brand: LeGer
+Made in: Thailand
+Code: JNS004"	22194005
+"Men's shirt | Type: Design casual shirt
+Size of unit: Large
+Unit of measure:  
+Other specification: Long sleeves colour
+Brand: One gallery
+Made in: 
+Code: SHT009"	22195008
+"Men's T-Shirt | Type: Casual T shirt
+Size of unit: Medium
+Unit of measure:  
+Other specification: maroon colour
+Brand: Musang
+Made in: Bangkok 
+Code: KSH003"	22196006
+"Men's Underwear | Type: Mens boxers
+Size of unit: XXL
+Unit of measure:                                                    Other specification: mix colours
+Brand: Adder
+Made in: Thailand
+Code: "	22197005
+"Women's pants | Type: Official pants
+Size of unit: medium
+Unit of measure:  
+Other specification: black
+Brand: Miss Daisy
+Made in: Korea
+Code: LTR001"	22199003
+"Womens Jeans | Type: Skinny jeans
+Size of unit: 30
+Unit of measure:  
+Other specification: Black colour 
+Brand: Nobi Jeans co.
+Made in: 
+Code: JNS0012"	22200005
+"Women's top | Type: Womens top
+Size of unit: small
+Unit of measure:  
+Other specification: pink colour
+Brand: brilliant basics
+Made in: Ausralia
+Code: "	22201005
+"Women's underwear | Type: 
+Size of unit: 
+Unit of measure:  
+Other specification:
+Brand: San Camo
+Made in: 
+Code: LU1000"	22202006
+"Women's dresses | Type: Body fit dress
+Size of unit: s/m/l
+Unit of measure:  
+Other specification: black, short sleeve
+Brand: 
+Made in: 
+Code: DRS006"	22203003
+"Children's clothing | Type: Boys Tshirt 
+Size of unit: 
+Unit of measure:  
+Other specification: black, two buttons and collar
+Brand: One Point
+Made in: Bangladesh
+Code: "	22205007
+"baby clothes | Type: Bodysuits
+Size of unit: 1  
+Unit of measure:  
+Other specification: 6-9 months
+Brand: Hudson Kids
+Made in: 
+Code: "	22206004
+"Bed | Type: Queen bed 
+Size of unit: 150 x 200
+Unit of measure:  
+Other specification:
+Brand: 
+Made in: 
+Code: A1391"	22270010
+"Wardrobe | Type: White 4 door wardrobe 
+Size of unit: 
+Unit of measure:  
+Other specification: white 
+Brand: 
+Made in: 
+Code: 1080545"	22271010
+"Wardrobe | Type: 3 door wardrobe 
+Size of unit: 
+Unit of measure:  
+Other specification: white 
+Brand: 
+Made in: 
+Code: 1073734"	22271011
+"Mattress | Type: Roll spring mattress 
+Size of unit: 180 x 200
+Unit of measure:  
+Other specification:
+Brand: 
+Made in: 
+Code: A872"	22272005
+"Sofa set | Type: Shin sofa set 
+Size of unit: 3pcs set
+Unit of measure:  183 x 74 89 cm/ 82 x 74 x 89 cm
+Other specification: dark grey + orange 
+Brand: 
+Made in: 
+Code: I079573"	22273007
+"Dining table set | Type: SOHIII 
+Size of unit: 1.2
+Unit of measure:  m
+Other specification: Grey
+Brand: SoHo
+Made in: 
+Code: I082906"	22274006
+"Bed room set | Type: 1063A, 151B
+Size of unit: Queen size
+Unit of measure:  
+Other specification:Brown and cream
+Brand: 
+Made in: 
+Code: I073804"	22275007
+"Bedsheet | Type: Queen Fitted 
+Size of units: 150 + 190 + 25 sheet 
+Unit of Measure:  4 pillowcase 1 bolster 
+Material: 
+Brand: MCT Home 
+Made in "	22544002
+"Towel | Type: Towel 
+Size of units: 
+Unit of Measure: 
+Material: 100% cotton
+Brand: Comfy bay
+Made in Pakistan"	22279011
+"Refrigerator | Type:  Inverter refrigerator
+Size of unit: 
+Other specification:  black colour
+Brand:  sharp
+Model: SJF104VGBK
+Code:  1071395
+"	22283007
+"Refrigerator | Type:  Silver refrigerator
+Size of unit: 320 L
+Other specification:  343kwh
+Brand:  
+Model: SJ326MSS
+Code:  1067727
+"	22283008
+"Oven | Type:  2 burner stove
+Size of unit: 
+Other specification:  
+Brand:  Nikura
+Model: AGS2001
+Code:  I041734
+"	22285004
+"Gas Stove | Type:  Gas oven
+Size of unit: 
+Other specification:  
+Brand:  Nikai
+Model: U2110N55A
+Code:  I030280
+"	22286005
+" Microwave | Type: Microwave oven 
+Size of unit: 25
+Other specification:  L
+Brand:  Nikai
+Made in:
+Code:  I038276
+"	22296004
+"Washing machine Automatic | Type:  Front load washimg machine
+Size of unit: 8 kg
+Other specification:  silver colour
+Brand:  LG
+Made in:
+Code:  I070819
+"	22288006
+"Air condition | Type:  Ovalcool airconditioner
+Size of unit: 
+Other specification:  9000 BTU
+Brand:  LG
+Made in:
+Code:  i076875
+"	22291005
+"Rice cooker | Type:  Rice cooker
+Size of unit: 1.8 L
+Other specification:  
+Brand:  Sharp
+Model: KSH188GWH                                                       
+Code:  I0171609
+"	22294004
+"Mixer | Type:  Super mixer and grinder
+Size of unit: 
+Other specification:  
+Brand:  Panasonic
+Model: MX-AC560                                                      
+Code:  I074965
+"	22295003
+" Blender | Type:  Blender
+Size of unit: 
+Other specification:  
+Brand:  Nikai
+Model: NB494A                                                       
+Code:  I075841
+"	22297005
+"Fan | Type:  Stand fan
+Size of unit: 
+Other specification:  white with remote
+Brand:  Nikai
+Made in:                                                       
+Code:  I037594
+"	22299002
+"Spoon/folk | Type: SS Tableware
+Size of units: 24 
+Unit of Measure: pcs
+Material: 
+Brand: Good lining
+Made in "	22548012
+"Plates | Type: Plates LHSP8616
+Size of units: 
+Unit of Measure: 
+Material: 
+Brand: Lanza
+Code: #130305"	22550005
+"Drinking Glass | Type: San Marino
+Size of units: 175
+Unit of Measure: ml
+Material: glass
+Brand: Ocean
+Code: B00406 "	22551007
+"Pots and pans | Type: Cookware set
+Size of units: 
+Unit of Measure: 
+Material: black
+Brand: Lanza
+Code: 6289169715640"	22553005
+"Pots and pans | Type: Chapati Tawa
+Size of units: 26 
+Unit of Measure: cm
+Material: nonstick coating
+Brand: Lanza
+Made in "	22553006
+"Dish wash | Type: Total clean
+Size of units: 810
+Unit of Measure: ml
+Material: lime and mineral salt
+Brand: Mama Lime
+Made in Japan"	22313021
+"Toilet cleaner | Type: Bathroom power spray
+Size of units: 750
+Unit of Measure: ml
+Material: Bottle
+Brand: Biotol
+Made in "	22314035
+"Air Freshner | Type: Rose
+Size of units: 400
+Unit of Measure: ml
+Material: blue can pink cap
+Brand: Stella
+Made in Indonesia"	22315022
+"Floor cleaner | Type: Apple
+Size of units: 900
+Unit of Measure: ml
+Material: 
+Brand: So Klin
+Made in Indonesia"	22316022
+"Detergent | Type: Liquid Detergent
+Size of units: 1
+Unit of Measure: Ltr
+Material: bottle
+Brand: Peros
+Made in "	22317037
+"Fabric Softner | Type: Rose 
+Size of units: 2
+Unit of Measure: L
+Material: pink bottle
+Brand: Peros
+Made in "	22318019
+"Sheltox/ Hitspray | Type: Expert
+Size of units: 600+75 
+Unit of Measure: ml
+Material: Green and silver cap
+Brand: HIT
+Made in "	22320025
+"Flat screen TV | Type:  LED TV smart
+Size of unit: 6.24 x 6.24 x 1.4ft
+Other specification: black 4k, 85""
+Resolution: 3840 x 2160
+Brand: Hisense
+Made in:                                                       
+Code:  I068956
+"	22406006
+"Flat screen TV | Type: Android smart TV 
+Size of unit: 65""
+Other specification:  4K, 
+Brand:  Sharp Aquos
+Model: 4TC65CK1X                                                      
+Code:  
+"	22406007
+"Toys | Type: Electric racing truck
+Size of units: ages 14+
+Unit of Measure: white / green box
+Material: 
+Brand: Vortex
+Made in                                                             Code: 1064618"	22423008
+"Tooth brush | Type: Chared Brush
+Size of units: 1
+Brand: Colagte TB
+Made in Sri Lanka"	22492028
+"Tooth brush | Type: 360 Charcoal soft
+Size of units: 1
+Brand: Colagte 
+Made in Sri Lanka"	22090182
+"Tooth brush | Type: Super flexi
+Size of units: 1
+Brand: Colagate Tb
+Made in Sri lanka"	22492029
+"Razor /blades | Type: Pearl max
+Size of units: 4 pcs
+Brand: Pwarl max
+Code: PM6603"	22493035
+"Razor /blades | Type: 
+Size of units:
+Unit of measure:
+Other Specification: 
+Brand: 
+Made in"	22090185
+"Shampoo | Type: Soft and smooth
+Size of units: 300 ml
+Brand: Sunsilk 
+Made in "	22494046
+"conditioners | Type: Total damage control
+Size of units: 200 ml
+Brand: Pantene- pro vit
+Made in India"	22495028
+"baby shampoo | Type: Baby shampoo 
+Size of units: 500
+Unit of Measure: ml
+Material: plastic bottle
+Brand: Johnsons baby
+Made in Indonesia"	22496032
+"baby shampoo | Type: 
+Size of units:
+Unit of measure:
+Other Specification: 
+Brand: 
+Made in"	22090189
+"Soap  | Type: Cool fresh
+Size of units:100 g 
+Brand: Dettol
+Made in "	22497031
+"shower gel | Type: Nature
+Size of units: 250
+Unit of Measure: ml 
+Material: Bottle
+Brand: Antabax
+Made in Vietnam"	22498038
+"baby shower gel | Type: Milk + Rice bath
+Size of units: 500
+Unit of Measure: ml
+Material: white bottle
+Brand: Johnsons baby
+Made in Malaysia"	22499037
+"Tooth paste | Type: Optic white lasting
+Size of units: 75
+Unit of Measure: ml
+Material: Redbox
+Brand: Colgate
+Made in Poland"	22500020
+"Facial wash | Type: Insta bright milk form
+Size of units: 100
+Unit of Measure: g 
+Material: Bottle
+Brand: Pond's
+Made in Unilever"	22501017
+"Cologne /baby cologne | Type: Gel cologne
+Size of units: 200
+Unit of Measure: ml
+Material: orangish bottle
+Brand: Lovellia
+Made in Indonesia"	22502041
+"Cologne /baby cologne | Type: Morning dew 
+Size of units: 125
+Unit of Measure: ml
+Material: blue bottle
+Brand: Johnsons baby
+Made in Philipines"	22502042
+"Hair cream / gel/ moose and alike | Type: Soft shine
+Size of units: 140
+Unit of Measure: ml
+Material: green tub
+Brand: Vatika
+Made in India"	22504042
+"Hair cream / gel/ moose and alike | Type: Styling hair gel
+Size of units: 250
+Unit of Measure: ml
+Material: blue tub
+Brand: Vatika
+Made in India"	22504044
+"Lotion | Type: Coco radient
+Size of units: 200
+Unit of Measure: ml
+Material: plastic bottle
+Brand: Vasliene
+Made in Malaysia"	22505048
+"baby lotion | Type: Milk lotion 
+Size of units: 200
+Unit of Measure: ml
+Material: white bottle
+Brand: Johnsons baby
+Made in Malaysia"	22506023
+"Hair oil | Type: Nourishing hair oil
+Size of units: 100
+Unit of Measure: ml
+Material: green bottle
+Brand: Kumarika
+Made in Sri Lanka"	22507019
+"Hair oil | Type:Argan oil
+Size of units: 200
+Unit of Measure: ml
+Material: green bottle
+Brand:Vatika
+Made in Sri Lanka"	22090202
+"Face cream  | Type: Advance multi Vitamin
+Size of units: 50
+Unit of Measure: g
+Material: plastic tube
+Brand: Fair & Lovely 
+Made in India"	22508019
+"Face cream  | Type: 
+Size of units:
+Unit of measure:
+Other Specification: 
+Brand: 
+Made in"	22090204
+"Lipstick | Type: Lip gloss velvet texture
+Size of unit: 
+Unit of measure: 
+Other specification: 
+Brand: Miss rose
+Made in: 
+Code: I087118"	22509001
+"Diapers/ Nappy | Type: Super soft baby pants
+Size of units: 38
+Unit of Measure: pcs
+Material: light blue packet
+Brand: Molfix
+Made in "	22510041
+"Diapers/ Nappy | Type: Super Soft baby pants
+Size of units: 6
+Unit of Measure: Piece
+Material: 
+Brand: Molfix
+Made in "	22510047
+"Sanitary Pads | Type: Original
+Size of units: 30
+Unit of Measure: pads 
+Material: pads 
+Brand: Original
+Made in "	22511034
+"Sanitary Pads | Type: Strayfree max pads
+Size of units: 8
+Unit of Measure: pads 
+Material: 
+Brand: Stayfree
+Made in "	22511050
+"White powder/ pink powder | Type: Normal baby powder 
+Size of units: 200
+Unit of Measure: g
+Material: white bottle
+Brand: Johnsons baby
+Made in India"	22512026
+"White powder/ pink powder | Type: Blossoms baby powder 
+Size of units: 200
+Unit of Measure: g
+Material: pink bottle
+Brand: Johnsons baby
+Made in India"	22512027
+"White powder/ pink powder | Type: 
+Size of units:
+Unit of measure:
+Other Specification: 
+Brand: 
+Made in"	22090212
+"Tissue | Type: Napkin tissue box
+Size of units: 100
+Unit of Measure: sheets
+Material: plastic packet
+Brand: Papia
+Made in Istanbul"	22513032
+"Handwash | Type: Cool fresh
+Size of units: 190
+Unit of Measure: ml
+Material: purple bottle
+Brand: Lifebouy
+Made in Turkey"	22514038
+"Handwash | Type: Sensitive
+Size of units: 200
+Unit of Measure: ml
+Material: purple bottle
+Brand: Dettol
+Made in"	22090215
+"Deodorant | Type: pomogranate (go fresh)
+Size of units: 150
+Unit of Measure: ml
+Material: white can (blue)
+Brand: Dove
+Made in London"	22515037
+"Body spray | Type: Absolute
+Size of units: 150
+Unit of Measure: ml
+Material: black can
+Brand: Fogg
+Made in India"	22516028
+"Body spray | Type: Chasitity
+Size of units:200
+Unit of Measure: ml
+Material: black can
+Brand: Rassasi
+Made in India"	22090218
+"School bags | Type: School bag
+Size of units: 1
+Code: BG003
+Made in "	22533008
+"Handbag | Type:  Handbag 
+Size of unit: 
+Unit of measure: 
+Package type:  
+Other specification: Dark brown leather 
+Brand: Proud
+Made in:                                                          Code: N9061"	22535006
+" Wallet | Type:  
+Size of unit: 
+Unit of measure: 
+Package type:  
+Other specification: Black colour
+Brand: Boweisig
+Code: JW3388-1"	22536006
+"Sports shoes men | Type:  Training shoes
+Size of unit: 45
+Unit of measure: 
+Other specification: black colour
+Brand: Baaji
+Made in: 
+Code:  BJM644                                                                                "	22221005
+"Slipper - men | Type:  Mens slippers
+Size of unit: 43
+Unit of measure: 
+Other specification: 
+Brand: iSport
+Made in: China
+Code:  SS21779A                                                                                "	22223007
+"Sandal | Type:  Womens slippers 
+Size of unit: 36
+Unit of measure: 
+Other specification: 
+Brand: Zenith club
+Made in: 
+Code: SLP001                                                                           "	22225006
+"Sports shoes women | Type:  Running shoes
+Size of unit: 37
+Unit of measure: 
+Other specification: Mix colour
+Brand: Baaji
+Made in: 
+Code: BJW729                                                                                 "	22226004
+"Children's shoes | Type:  Girls shoes
+Size of unit: 
+Unit of measure: 
+Other specification: pink colour
+Brand: Fashion
+Made in: 
+Code: F0305                                                                                 "	22231007

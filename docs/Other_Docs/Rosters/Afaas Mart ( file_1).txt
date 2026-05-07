@@ -1,0 +1,60 @@
+3331	Normal Rice | Type: Normal rice | Size of units: 1 | Unit of Measure: Kg | Material: Loose | Last Price: Jan_2025 Price: 5
+3332	Basmathi Rice | Type: Basmathi Rice (Yellow) | Size of units: 1 | Unit of Measure:Kg | Material: Packet | Brand: Maharani | Made in India | Last Price: Jan_2025 Price: 45
+3333	Wheat Flour | Type: Normal Wheat flour | Size of units: 1 | Unit of Measure: kg | Material: loose | Last Price: Jan_2025 Price: 4
+3334	Whole Wheat Flour | Type: Chakki Atta | Size of units: 1 | Unit of Measure: Kg | Material: Red packet | Brand: Al Bakers | Made in UAE | Last Price: Jan_2025 Price: 36
+3335	Bread (Sliced/ Loaf) | Type: Normal | Size of units: Big | Unit of Measure: | Material: blue packaging | Brand: Alcyon | Made in Maldives | Last Price: Jan_2025 Price: 25
+3336	Buns | Type: Buns | Size of units: 10 | Unit of Measure: Buns | Material: Packet | Brand: Alcyon | Made in | Last Price: Jan_2025 Price: 12
+3337	Frozen Parata | Type: Plain parata | Size of units: 5 | Unit of Measure: Piece | Material: packet | Other Specification: Green | Brand: Kawan | Made in | Last Price: Dec_2024 Price: 43
+3338	Cream crackers | Type: Cream crackers | Size of units:200 | Unit of Measure: g | Material: packet | Other Specification: blue | Brand: Navigable | Made in | Last Price: Jan_2025 Price: 16
+3339	Marie Biscuits | Type: Marie biscuits | Size of units: 400 | Unit of Measure: g | Material: packet | Brand: CBL Munchee | Made in | Last Price: Jan_2025 Price: 36
+3340	Other Crackers | Type: Milk Biscuits | Size of units: 200 | Unit of Measure:g | Material: Blue packet | Other Specification: | Brand: CBL Munchee | Made in | Last Price: Dec_2024 Price: 15
+3341	"Hard buns, Faaroshi, Hikki banas (N) | Type: Faaroshi | Size of units: Small | Unit of Measure: | Material: | Brand: Alcyon | Made in | Last Price: Jan_2025 Price: 15"
+3342	Packet Cakes | Type: Pandan Cakes | Size of units: 18 | Unit of Measure: gram | Material: Green cake drwn packaging | Brand: Apollo cake | Made in | Last Price: Jan_2025 Price: 2.5
+3343	Corn flakes | Type: Real Almond Honey | Size of units: 300 | Unit of Measure: g | Material: Box | Brand: Kelloggs | Made in US | Last Price: Jan_2025 Price: 80
+3344	Chocos | Type: Chocos' (more chocolaty) | Size of units: 250 | Unit of Measure: g | Material: Pouch | Brand: Kellog's | Made in | Last Price: Jan_2025 Price: 60
+3345	Oats | Type: Rolled Oats | Size of units: 400 | Unit of Measure: g | Material: Red packet | Brand: Kelloggs | Made in US | Last Price: Dec_2024 Price: 55
+3346	Pasta | Type: Elbows | Size of units: 500 | Unit of Measure: g | Material: Packet | Brand: San remo | Made in | Last Price: Dec_2024 Price: 33
+3347	Noodles | Type: Curry flavour | Size of units: 80 | Unit of Measure: g | Material: Yellow Packaging | Brand: Mamee | Made in | Last Price: Jan_2025 Price: 7
+3348	Cake mix | Type: Vanilla | Size of units: 485 | Unit of Measure: g | Material: Blue packet | Brand: Pilsbury | Made in | Last Price: Jan_2025 Price: 48
+3349	Frozen Beef | Type: Chunks | Size of units: 900 | Unit of Measure: g | Material: Yellow packet | Brand: Allana | Made in | Last Price: Jan_2025 Price: 105
+3350	Frozen Chicken | Type: Whole Chicken | Size of units:1400 | Unit of Measure: g | Material: Packet | Brand: Frangosul | Made in | Last Price: Jan_2025 Price: 85
+3351	Sausage | Type: Normal | Size of units: 10 | Unit of Measure: Piece | Material: | Brand: Frangosul | Made in | Last Price: Jan_2025 Price: 27
+3352	Tuna Curry Cut | Type: Raw mas | Size of units: 1 | Unit of Measure: kg | Material: | Brand: Local Market | Made in Maldives | Last Price: Dec_2024 Price: 90
+3353	Dried fish (Hikimas) | Type: Maldive Fish | Size of units: 25 | Unit of Measure: g | Material: blue packet | Brand: Masmirus | Made in Maldives | Last Price: Jan_2025 Price: 10
+3354	Smoked Fish (valhomas) | Type: Smoked fish | Size of units: 1 | Unit of Measure: kg | Material: Packet vaccumed | Brand: reefahi | Made in | Last Price: Jan_2025 Price: 140
+3355	Rihaa Kuru | Type: Thelluli rihaakuru | Size of units:200 | Unit of Measure: ml | Material: Bottle | Brand: Kulhimeeru | Made in Maldives | Last Price: Jan_2025 Price: 90
+3356	Thelli faiy/ Masfaiy | Type: Thellulifaiy | Size of units: Small | Unit of Measure: | Material: Packet | Brand: Challengers Mladives Pvt Ltd | Made in Maldives | Last Price: Jan_2025 Price: 10
+3357	Masmirus | Type: Masmirus | Size of units: 25 | Unit of Measure: g | Material: Blue packet | Brand: masmirus | Made in Maldives | Last Price: Jan_2025 Price: 10
+3358	Canned fish | Type: Tuna chunks in Oil | Size of units: 180 | Unit of Measure:g | Material: tin | Other Specification: | Brand: Felivaru | Made in Maldives | Last Price: Jan_2025 Price: 18
+3359	Canned fish | Type: Tuna chunks in Brine | Size of units: 180 | Unit of Measure:g | Material: tin | Brand: Felivaru | Made in Maldives | Last Price: Jan_2025 Price: 17
+3360	Condensed Milk | Type: Double peach | Size of units: 380 | Unit of Measure: g | Material: Tin | Brand: Marigold | Made in | Last Price: Jan_2025 Price: 16
+3361	Milk Powder | Type: Full cream | Size of units: 400 | Unit of Measure: g | Material: Tin with red cap | Brand: Coast | Made in | Last Price: Jan_2025 Price: 84
+3362	Coconut cream | Type: Coconut milk | Size of units: 150 | Unit of Measure: ml | Material: Packet | Brand: Aroy-D | Made in | Last Price: Jan_2025 Price: 15
+3363	Cheese | Type: Dutch | Size of units: 200 | Unit of Measure: g | Material: Purple pacaking | Brand: Embrog | Made in | Last Price: Jan_2025 Price: 60
+3364	Yoghurt | Type: Plain yoghurt | Size of units: 125 | Unit of Measure: g | Material: | Brand: Pacsual | Made in | Last Price: Jan_2025 Price: 15
+3365	Yoghurt | Type: Greek Vanilla | Size of units: 125 | Unit of Measure: g | Material: Plastic Cup | Brand: Pacsual | Made in | Last Price: Jan_2025 Price: 15
+3366	Milo powder | Type: Milo Powder | Size of units: 1 | Unit of Measure: kg | Material: packet | Brand: Nestle' | Made in | Last Price: Jan_2025 Price: 150
+3367	Milk packet flavoured | Type: Low fat | Size of units: 1 | Unit of Measure: Litre | Material: Packet | Brand: Lacnor | Made in | Last Price: Jan_2025 Price: 26
+3368	Eggs | Type: White eggs | Size of units: 1 | Unit of Measure: Piece | | Last Price: Jan_2025 Price: 2.5
+3369	Olive Oil | Type: | Size of units: | Unit of Measure: | Material: | Brand: | Made in | Last Price: Jan_2025 Price: 180
+3370	Butter | Type: Unsalted butter | Size of units: 250 | Unit of Measure: g | Material: Foil kind packaging | Brand: Oldenburger | Made in | Last Price: Jan_2025 Price: 85
+3371	Margerine | Type: Calostrol free | Size of units: 240 | Unit of Measure: g | Material: Tub | Brand: Daisy | Made in | Last Price: Dec_2024 Price: 33
+3372	Bananas | Type: Banana | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1927 | Last Price: Jan_2025 Price: 50
+3373	Lime | Type: lime | Size of units: 1 | Unit of Measure: kg | Material: loose | Code: 1926 | Last Price: Jan_2025 Price: 50
+3374	Oranges | Type: Orange | Size of units: 1 | Unit of Measure:piece | Material: loose | Code: 2029 | Last Price: Jan_2025 Price: 5
+3375	Apples | Type: Apple | Size of units: 1 | Unit of Measure: Piece | Material: loose | Code:2015 | Last Price: Jan_2025 Price: 7
+3376	Watermelon | Type: WaterMelon | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1932 | Last Price: Jan_2025 Price: 20
+3377	Green Chilly | Type: Green chilli | Size of units: 1 | Unit of Measure: kg | Material: loose | Code: 2020 | Last Price: Jan_2025 Price: 100
+3378	Githeyo Mirus | Type: Kandoodhoo mirus | Size of units: 100 | Unit of Measure: g | Material: loose | Code:2028 | Last Price: Jan_2025 Price: 50
+3379	Cucumber | Type: Cucumber | Size of units: 1 | Unit of Measure: kg | Material: loose | Code: 1923 | Last Price: Jan_2025 Price: 70
+3380	Tomato | Type: Tomato | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1918 | Last Price: Jan_2025 Price: 40
+3381	Pumpkin/ Barabo | Type: | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1921 | Last Price: Jan_2025 Price: 20
+3382	Capsicum | Type: | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1920 | Last Price: Jan_2025 Price: 80
+3383	Bell pepper | Type: | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:2004 | Last Price: Jan_2025 Price: 100
+3384	"Beans, Tholhi | Type: | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1919 | Last Price: Jan_2025 Price: 100"
+3385	Carrot | Type: | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1916 | Last Price: Jan_2025 Price: 40
+3386	Garlic | Type: | Size of units: 1 | Unit of Measure: kg | Material: loose | Code: 1789 | Last Price: Jan_2025 Price: 60
+3387	Onion | Type: | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1930 | Last Price: Jan_2025 Price: 30
+3388	Potatoes | Type: | Size of units: 1 | Unit of Measure: kg | Material: loose | Code:1931 | Last Price: Jan_2025 Price: 30
+3389	Mugu | Type: Yellow | Size of units: 500 | Unit of Measure: g | Material: loose | Brand: | Last Price: Jan_2025 Price: 25
+3390	Baked beans canned | Type: Baked beans | Size of units: 425 | Unit of Measure: g | Material: tin | Brand: Fresh | Made in | Last Price: Jan_2025 Price: 20

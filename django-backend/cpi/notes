@@ -1,0 +1,15 @@
+venv\Scripts\activate
+
+python manage.py runserver
+
+
+http://127.0.0.1:8000/admin/cpi/dimoutlet/
+
+
+CTRL + C
+python manage.py runserver
+
+CTRL + C
+python manage.py runserver 0.0.0.0:8000
+
+http://127.0.0.1:8000/api/submit-price/
