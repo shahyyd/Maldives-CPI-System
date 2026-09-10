@@ -1,0 +1,449 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Small Outlet Assignments{% endblock %}
+{% block page_title %}Small Outlet Assignments{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-end mb-3">
+    <a href="{% url 'supervisor-assignments' %}"
+       class="btn btn-outline-secondary">
+        Back to Assigned Outlets
+    </a>
+</div>
+
+{% if active_round %}
+<div class="mb-3 text-muted">
+    Current Round:
+    <strong>
+        {{ active_round.survey_year }}-{{ active_round.survey_month|stringformat:"02d" }}
+    </strong>
+</div>
+{% endif %}
+
+    <form method="post" id="smallAssignmentForm">
+        {% csrf_token %}
+
+        <input type="hidden"
+            name="assignment_mode"
+            value="SMALL_OUTLET">
+
+    </form>
+
+<div class="row g-3 align-items-end">
+
+    <div class="col-md-4">
+
+        <label class="form-label fw-semibold">
+            Outlet Category
+        </label>
+
+        <div class="d-flex gap-2">
+
+            <a href="?category=FOOD"
+               class="btn flex-fill {% if selected_category == 'FOOD' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                Food
+            </a>
+
+            <a href="?category=NONFOOD"
+               class="btn flex-fill {% if selected_category == 'NONFOOD' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                Non-Food
+            </a>
+
+            <a href="?category=SERVICE"
+               class="btn flex-fill {% if selected_category == 'SERVICE' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                Services
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+        <label class="form-label fw-semibold">
+            Island
+        </label>
+
+    <form method="get" id="islandFilterForm">
+
+        <input type="hidden"
+            name="category"
+            value="{{ selected_category }}">
+
+        <select class="form-select"
+                name="island"
+                onchange="this.form.submit()">
+
+            <option value="">
+                All Islands
+            </option>
+
+            {% for island in islands %}
+            <option value="{{ island.island_id }}"
+                    {% if selected_island_id == island.island_id|stringformat:"s" %}selected{% endif %}>
+                {{ island.island_name }}
+            </option>
+            {% endfor %}
+
+        </select>
+
+    </form>
+    </div>
+
+
+
+    <div class="col-md-4">
+        <label class="form-label fw-semibold">
+            Collector
+        </label>
+
+        <select class="form-select"
+                name="collector"
+                form="smallAssignmentForm">
+            <option value="">
+                Select Collector
+            </option>
+
+            {% for collector in collectors %}
+            <option value="{{ collector.user_id }}">
+                {{ collector.full_name|default:collector.django_user.username }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+</div>
+
+<div class="mt-3">
+    <input type="text"
+           id="outletSearch"
+           class="form-control"
+           placeholder="Search outlet name...">
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <h5 class="mb-0">
+                Small Outlets
+            </h5>
+
+            <div class="d-flex align-items-center gap-3">
+
+                <span class="badge bg-secondary">
+                    {{ small_outlets|length }} outlets
+                </span>
+
+                <button type="submit"
+                        form="smallAssignmentForm"
+                        class="btn btn-primary">
+                    Assign Selected Outlets
+                </button>
+
+            </div>
+
+        </div>
+
+        {% if small_outlets %}
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 85px; white-space: nowrap;">
+                            <input
+                                class="form-check-input me-1"
+                                type="checkbox"
+                                id="selectAllOutlets">
+
+                            <label for="selectAllOutlets"
+                                class="mb-0">
+                                Select All
+                            </label>
+                        </th>
+
+                        <th>Outlet Name</th>
+                        <th>Island</th>
+                        <th>Outlet Type</th>
+                        <th class="text-center">Items</th>
+                        <th>View</th>
+                        <th>Collector</th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for outlet in small_outlets %}
+                    <tr>
+
+                        <td>
+                            {% if outlet.is_assigned %}
+
+                                <span class="text-muted">-</span>
+
+                            {% else %}
+
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    name="outlet_ids"
+                                    value="{{ outlet.outlet_id }}"
+                                    form="smallAssignmentForm">
+
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            <strong>
+                                {{ outlet.outlet_name }}
+                            </strong>
+                        </td>
+
+                        <td>
+                            {{ outlet.island.island_name }}
+                        </td>
+
+                        <td>
+                            {{ outlet.outlet_type.outlet_type_name }}
+                        </td>
+
+                        <td class="text-center">
+                            {{ outlet.item_count }}
+                        </td>
+                         <td>
+                            <button type="button"
+                                    class="btn btn-outline-primary btn-sm view-small-outlet-btn"
+                                    data-outlet-id="{{ outlet.outlet_id }}">
+                                View
+                            </button>
+                        </td>                           
+
+                        <td>
+                            {% if outlet.is_assigned %}
+
+                                <span class="fw-semibold text-nowrap">
+                                    {{ outlet.assigned_collector }}
+                                </span>
+
+                            {% else %}
+
+                                <span class="text-muted">-</span>
+
+                            {% endif %}
+                        </td>
+
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+        {% else %}
+
+        <div class="text-muted text-center py-4">
+            No available small outlets found for the selected category.
+        </div>
+
+        {% endif %}
+
+    </div>
+</div>
+
+<div class="modal fade"
+     id="smallOutletItemsModal"
+     tabindex="-1"
+     aria-labelledby="smallOutletItemsModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title"
+                    id="smallOutletItemsModalLabel">
+                    Outlet Items
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div id="smallOutletItemsLoading"
+                     class="text-muted">
+                    Loading items...
+                </div>
+
+                <div id="smallOutletItemsContent"
+                     style="display:none;">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+document.getElementById("selectAllOutlets").addEventListener("change", function () {
+
+    const outletCheckboxes = document.querySelectorAll(
+        'input[name="outlet_ids"]'
+    );
+
+    outletCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = document.getElementById("selectAllOutlets").checked;
+    });
+
+});
+
+document.getElementById("outletSearch").addEventListener("input", function () {
+
+    const searchText = this.value.toLowerCase().trim();
+
+    const outletRows = document.querySelectorAll(
+        "tbody tr"
+    );
+
+    outletRows.forEach(function (row) {
+
+        const outletName = row.cells[1].textContent
+            .toLowerCase()
+            .trim();
+
+        if (outletName.includes(searchText)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+
+    });
+
+});
+</script>
+
+<script>
+document.querySelectorAll(".view-small-outlet-btn").forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const outletId = this.dataset.outletId;
+
+        const modalElement =
+            document.getElementById("smallOutletItemsModal");
+
+        const modal =
+            new bootstrap.Modal(modalElement);
+
+        const modalTitle =
+            document.getElementById("smallOutletItemsModalLabel");
+
+        const loading =
+            document.getElementById("smallOutletItemsLoading");
+
+        const content =
+            document.getElementById("smallOutletItemsContent");
+
+        modalTitle.textContent = "Outlet Items";
+
+        loading.style.display = "";
+        content.style.display = "none";
+        content.innerHTML = "";
+
+        modal.show();
+
+        const url =
+            "{% url 'supervisor-small-assignment-items' %}"
+            + "?outlet_id="
+            + encodeURIComponent(outletId);
+
+        fetch(url)
+            .then(function (response) {
+
+                if (!response.ok) {
+                    throw new Error(
+                        "Unable to load items."
+                    );
+                }
+
+                return response.json();
+            })
+            .then(function (data) {
+
+                modalTitle.textContent =
+                    data.outlet_name
+                    + " — "
+                    + data.item_count
+                    + " items";
+
+                let html = `
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width:60px;">#</th>
+                                    <th>Item</th>
+                                    <th>Specification</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+
+                data.items.forEach(function (item, index) {
+
+                    html += `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${item.product_name || "-"}</td>
+                            <td>${item.product_specification || "-"}</td>
+                        </tr>
+                    `;
+
+                });
+
+                html += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+
+                loading.style.display = "none";
+                content.innerHTML = html;
+                content.style.display = "";
+
+            })
+            .catch(function () {
+
+                loading.style.display = "none";
+
+                content.innerHTML = `
+                    <div class="alert alert-danger mb-0">
+                        Unable to load the items.
+                    </div>
+                `;
+
+                content.style.display = "";
+
+            });
+
+    });
+
+});
+</script>
+
+{% endblock %}

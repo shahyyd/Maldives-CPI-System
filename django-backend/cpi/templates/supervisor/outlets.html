@@ -1,0 +1,150 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Outlets{% endblock %}
+{% block page_title %}Outlets{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+
+    <a href="/api/supervisor/outlets/add/"
+    class="btn btn-primary">
+        + Add Outlet
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="get" class="row g-2 mb-3">
+
+            <div class="col-md-4">
+                <input type="text"
+                    name="search"
+                    value="{{ search }}"
+                    class="form-control"
+                    placeholder="Search code, outlet or island">
+            </div>
+
+            <div class="col-md-3">
+                <select name="island" class="form-select">
+                    <option value="">All Islands</option>
+                    {% for island in islands %}
+                        <option value="{{ island.island_id }}"
+                            {% if selected_island == island.island_id|stringformat:"s" %}selected{% endif %}>
+                            {{ island.island_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <select name="outlet_type" class="form-select">
+                    <option value="">All Outlet Types</option>
+                    {% for type in outlet_types %}
+                        <option value="{{ type.outlet_type_id }}"
+                            {% if selected_outlet_type == type.outlet_type_id|stringformat:"s" %}selected{% endif %}>
+                            {{ type.outlet_type_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-2 d-flex gap-2">
+                <button type="submit" class="btn btn-primary w-100">
+                    Filter
+                </button>
+
+                <a href="{% url 'supervisor-outlets' %}"
+                class="btn btn-outline-secondary">
+                    Clear
+                </a>
+            </div>
+
+        </form>
+
+        <table class="table table-hover mb-0 mt-3">
+
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Outlet Name</th>
+                    <th>Island</th>
+                    <th>Outlet Type</th>
+                    <th>Collection Items</th>
+                    <th>Status</th>
+                    <th width="180">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for outlet in outlets %}
+                <tr>
+
+                    <td>{{ outlet.outlet_code }}</td>
+
+                    <td>{{ outlet.outlet_name }}</td>
+
+                    <td>{{ outlet.island.island_name }}</td>
+
+                    <td>
+                        {{ outlet.outlet_type.outlet_type_name }}
+                    </td>
+
+                    <td>{{ outlet.item_count }}</td>
+
+                    <td>
+                        {% if outlet.is_active %}
+                            <span class="badge bg-success">
+                                Active
+                            </span>
+                        {% else %}
+                            <span class="badge bg-secondary">
+                                Inactive
+                            </span>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        <a href="{% url 'supervisor-outlet-detail' outlet.outlet_id %}"
+                            class="btn btn-sm btn-outline-primary">
+                            View
+                        </a>
+
+                        <a href="{% url 'supervisor-outlet-edit' outlet.outlet_id %}"
+                            class="btn btn-sm btn-outline-secondary">
+                            Edit
+                        </a>
+
+                        <form method="post"
+                            action="{% url 'supervisor-outlet-delete' outlet.outlet_id %}"
+                            style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit"
+                                    class="btn btn-sm btn-outline-danger"
+                                    onclick="return confirm('Are you sure you want to remove this outlet?');">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center py-4">
+                        No outlets found
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

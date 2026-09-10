@@ -1,0 +1,114 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Edit Collection Item{% endblock %}
+{% block page_title %}Edit Collection Item{% endblock %}
+
+{% block content %}
+
+<div class="mb-3">
+    <a href="{% url 'supervisor-collection-item-detail' item.collection_item_id %}"
+       class="btn btn-sm btn-outline-secondary">
+        ← Back to Item
+    </a>
+</div>
+
+<div class="card dashboard-card">
+    <div class="card-header bg-white">
+        <strong>Edit Collection Item</strong>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-4">
+                <strong>Product Code</strong><br>
+                {{ item.product_code|default:"-" }}
+            </div>
+
+            <div class="col-md-4">
+                <strong>Outlet</strong><br>
+                {{ item.outlet.outlet_name }}
+            </div>
+
+            <div class="col-md-4">
+                <strong>Specification No</strong><br>
+                {{ item.specification_no|default:"-" }}
+            </div>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label">Product Name</label>
+                    {{ form.product_name }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Brand / Product Detail</label>
+                    {{ form.brand }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Last Price</label>
+                    {{ form.last_price }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Type</label>
+                    {{ form.spec_type }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Size of Unit</label>
+                    {{ form.size_value }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Unit of Measure</label>
+                    {{ form.unit }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Package Type / Material</label>
+                    {{ form.material }}
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Other Specification</label>
+                    {{ form.other_spec }}
+                </div>
+
+                <div class="col-md-3 d-flex align-items-end">
+                    <div class="form-check">
+                        {{ form.is_active }}
+                        <label class="form-check-label">Active</label>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="form-label">Product Specification</label>
+                    {{ form.product_specification }}
+                </div>
+
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">
+                    Save Changes
+                </button>
+
+                <a href="{% url 'supervisor-collection-item-detail' item.collection_item_id %}"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

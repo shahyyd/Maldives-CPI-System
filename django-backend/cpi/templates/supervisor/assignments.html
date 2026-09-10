@@ -1,0 +1,356 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Assignments{% endblock %}
+{% block page_title %}Assignments{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        {% if active_round %}
+            <span class="text-muted">
+                Round:
+                <strong>
+                    {{ active_round.survey_year }}-{{ active_round.survey_month|stringformat:"02d" }}
+                </strong>
+            </span>
+        {% endif %}
+    </div>
+
+</div>
+
+{% if incomplete_large_outlets %}
+<div class="alert alert-warning">
+    <strong>Incomplete large-outlet assignments:</strong>
+
+    <ul class="mb-0 mt-2">
+        {% for row in incomplete_large_outlets %}
+        <li>
+            {{ row.outlet_name }}:
+            {{ row.missing_split }} still needs to be assigned.
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="row mb-3">
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">
+                    Collectors Assigned
+                </div>
+                <div class="fs-3 fw-bold">
+                    {{ total_collectors }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">
+                    Assigned Outlets
+                </div>
+                <div class="fs-3 fw-bold">
+                    {{ assigned_outlets }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <div class="text-muted small">
+                    Large/Shared Outlets
+                </div>
+                <div class="fs-3 fw-bold">
+                    {{ shared_outlets }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row g-3 align-items-end mb-3">
+
+    <div class="col-md-4">
+
+        <label class="form-label fw-semibold">
+            Outlet Category
+        </label>
+
+        <div class="d-flex gap-2">
+
+            <a href="?category=FOOD"
+               class="btn flex-fill {% if selected_category == 'FOOD' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                Food
+            </a>
+
+            <a href="?category=NONFOOD"
+               class="btn flex-fill {% if selected_category == 'NONFOOD' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                Non-Food
+            </a>
+
+            <a href="?category=SERVICE"
+               class="btn flex-fill {% if selected_category == 'SERVICE' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                Services
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+    <label class="form-label fw-semibold">
+        Island
+    </label>
+
+    <form method="get" id="assignedIslandFilterForm">
+
+        <input type="hidden"
+               name="category"
+               value="{{ selected_category }}">
+
+        <select class="form-select"
+                name="island"
+                onchange="this.form.submit()">
+
+            <option value="">
+                All Islands
+            </option>
+
+            {% for island in islands %}
+
+            <option value="{{ island.island_id }}"
+                    {% if selected_island_id == island.island_id|stringformat:"s" %}selected{% endif %}>
+                {{ island.island_name }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </form>
+
+</div>
+
+<div class="col-md-4">
+
+    <label class="form-label fw-semibold">
+        Collector
+    </label>
+
+    <form method="get" id="assignedCollectorFilterForm">
+
+        <input type="hidden"
+               name="category"
+               value="{{ selected_category }}">
+
+        <input type="hidden"
+               name="island"
+               value="{{ selected_island_id }}">
+
+        <select class="form-select"
+                name="collector"
+                onchange="this.form.submit()">
+
+            <option value="">
+                All Collectors
+            </option>
+
+            {% for collector in collectors %}
+
+            <option value="{{ collector.user_id }}"
+                    {% if selected_collector_id == collector.user_id|stringformat:"s" %}selected{% endif %}>
+                {{ collector.full_name|default:collector.django_user.username }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </form>
+
+</div>
+
+</div>
+<div class="mb-3">
+
+    <label class="form-label fw-semibold">
+        Search Outlet
+    </label>
+
+    <input type="text"
+           id="assignedOutletSearch"
+           class="form-control"
+           placeholder="Type outlet name to search...">
+
+</div>
+
+<div class="card">
+    <div class="card-body p-0">
+
+        <div class="table-responsive">
+            <table class="table table-hover table-sm mb-0 align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Island</th>
+                        <th>Outlet</th>
+                        <th>Total Items</th>
+                        <th>Assignment Type</th>
+                        <th>Item Split</th>
+                        <th>Collector</th>
+                        <th>Assigned Items</th>
+                        <th class="text-center" style="width:90px;">Status</th>
+                        <th class="text-center" style="width:330px;">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in assignments %}
+                    <tr>
+                        <td>{{ row.island_name }}</td>
+                        <td>{{ row.outlet_name }}</td>
+                        <td>{{ row.total_items }}</td>
+                        <td>{{ row.assignment_type }}</td>
+                        <td>{{ row.item_split }}</td>
+                        <td>{{ row.collector_name }}</td>
+                        <td>{{ row.display_range }}</td>
+                        <td class="text-center align-middle">
+                            <span class="badge bg-success">
+                                Active
+                            </span>
+                        </td>
+
+                        <td class="text-center align-middle">
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+
+                                <form method="post"
+                                    action="{% url 'supervisor-assignment-reassign' %}"
+                                    class="d-flex align-items-center gap-1">
+                                    {% csrf_token %}
+
+                                    <input type="hidden"
+                                        name="outlet_id"
+                                        value="{{ row.outlet_id }}">
+
+                                    <input type="hidden"
+                                        name="collector_id"
+                                        value="{{ row.collector_id }}">
+
+                                    <input type="hidden"
+                                        name="assignment_type"
+                                        value="{{ row.assignment_type }}">
+
+                                    <input type="hidden"
+                                        name="item_split"
+                                        value="{{ row.item_split }}">
+
+                                    <select name="new_collector"
+                                            class="form-select form-select-sm"
+                                            style="width:145px;"
+                                            required>
+                                        <option value="">
+                                            Reassign to...
+                                        </option>
+
+                                        {% for collector in collectors %}
+                                            {% if collector.user_id != row.collector_id %}
+                                            <option value="{{ collector.user_id }}">
+                                                {{ collector.full_name|default:collector.django_user.username }}
+                                            </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+
+                                    <button type="submit"
+                                            class="btn btn-sm btn-outline-primary"
+                                            style="width:82px;"
+                                            onclick="return confirm('Reassign this assignment?');">
+                                        Reassign
+                                    </button>
+                                </form>
+
+                                <form method="post"
+                                    action="{% url 'supervisor-assignment-remove' %}"
+                                    class="d-flex align-items-center">
+                                    {% csrf_token %}
+
+                                    <input type="hidden"
+                                        name="outlet_id"
+                                        value="{{ row.outlet_id }}">
+
+                                    <input type="hidden"
+                                        name="collector_id"
+                                        value="{{ row.collector_id }}">
+
+                                    <input type="hidden"
+                                        name="assignment_type"
+                                        value="{{ row.assignment_type }}">
+
+                                    <input type="hidden"
+                                        name="item_split"
+                                        value="{{ row.item_split }}">
+
+                                    <button type="submit"
+                                            class="btn btn-sm btn-outline-danger"
+                                            style="width:72px;"
+                                            onclick="return confirm('Revoke this assignment?');">
+                                        Revoke
+                                    </button>
+                                </form>
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    {% empty %}
+                    <tr>
+                        <td colspan="9"
+                            class="text-center py-4">
+                            No assignments found for the current round.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script>
+document.getElementById("assignedOutletSearch").addEventListener("input", function () {
+
+    const searchText = this.value.toLowerCase().trim();
+
+    const assignmentRows = document.querySelectorAll(
+        "tbody tr"
+    );
+
+    assignmentRows.forEach(function (row) {
+
+        if (row.cells.length < 2) {
+            return;
+        }
+
+        const outletName = row.cells[1].textContent
+            .toLowerCase()
+            .trim();
+
+        if (outletName.includes(searchText)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+
+    });
+
+});
+</script>
+
+{% endblock %}

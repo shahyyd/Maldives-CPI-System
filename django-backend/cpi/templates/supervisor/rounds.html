@@ -1,0 +1,166 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}CPI Rounds{% endblock %}
+{% block page_title %}CPI Rounds{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+    <form method="post"
+        action="{% url 'supervisor-round-create' %}"
+        class="d-inline">
+        {% csrf_token %}
+
+        <button type="submit"
+                class="btn btn-primary">
+            + Create Current Month
+        </button>
+    </form>
+</div>
+
+<div class="card">
+    <div class="card-body p-0">
+
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Status</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th width="180">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for round in rounds %}
+                <tr>
+
+                    <td>{{ round.survey_year }}</td>
+
+                    <td>{{ round.survey_month }}</td>
+
+                    <td>
+                        {% if round.round_status == "DRAFT" %}
+                            <span class="badge bg-secondary">DRAFT</span>
+
+                        {% elif round.round_status == "PREPARED" %}
+                            <span class="badge bg-info text-dark">PREPARED</span>
+
+                        {% elif round.round_status == "OPEN" %}
+                            <span class="badge bg-success">OPEN</span>
+
+                        {% elif round.round_status == "CLOSED" %}
+                            <span class="badge bg-warning text-dark">CLOSED</span>
+
+                        {% elif round.round_status == "LOCKED" %}
+                            <span class="badge bg-dark">LOCKED</span>
+
+                        {% else %}
+                            <span class="badge bg-secondary">
+                                {{ round.round_status }}
+                            </span>
+                        {% endif %}
+                    </td>
+
+                    <td>{{ round.collection_start_date }}</td>
+
+                    <td>{{ round.collection_end_date }}</td>
+
+                    <td>
+
+                        {% if round.round_status == "DRAFT" %}
+                        <form method="post"
+                            action="{% url 'supervisor-round-prepare' round.round_id %}"
+                            class="d-inline">
+                            {% csrf_token %}
+
+                            <button type="submit"
+                                    class="btn btn-sm btn-warning">
+                                Prepare
+                            </button>
+                        </form>
+                        {% endif %}
+
+                        {% if round.round_status == "PREPARED" %}
+                        <form method="post"
+                            action="{% url 'supervisor-round-open' round.round_id %}"
+                            class="d-inline">
+                            {% csrf_token %}
+
+                            <button type="submit"
+                                    class="btn btn-sm btn-success">
+                                Open
+                            </button>
+                        </form>
+                        {% endif %}
+
+                        {% if round.round_status == "OPEN" %}
+                        <form method="post"
+                            action="{% url 'supervisor-round-close' round.round_id %}"
+                            class="d-inline">
+                            {% csrf_token %}
+
+                            <button type="submit"
+                                    class="btn btn-warning btn-sm">
+                                Close
+                            </button>
+                        </form>
+                        {% endif %}
+
+                        {% if round.round_status == "CLOSED" %}
+                        <form method="post"
+                            action="{% url 'supervisor-round-reopen' round.round_id %}"
+                            class="d-inline me-1">
+                            {% csrf_token %}
+
+                            <button type="submit"
+                                    class="btn btn-sm btn-success">
+                                Reopen
+                            </button>
+                        </form>
+                        <form method="post"
+                            action="{% url 'supervisor-round-lock' round.round_id %}"
+                            class="d-inline">
+                            {% csrf_token %}
+
+                            <button type="submit"
+                                    class="btn btn-sm btn-danger">
+                                Lock
+                            </button>
+                        </form>
+                        {% endif %}
+                        {% if round.round_status == "LOCKED" %}
+                        <form method="post"
+                            action="{% url 'supervisor-round-unlock' round.round_id %}"
+                            class="d-inline">
+                            {% csrf_token %}
+
+                            <button type="submit"
+                                    class="btn btn-sm btn-secondary">
+                                Unlock
+                            </button>
+                        </form>
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center py-4">
+                        No CPI rounds available
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

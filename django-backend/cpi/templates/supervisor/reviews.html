@@ -1,0 +1,183 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Review & Approval{% endblock %}
+{% block page_title %}Review & Approval{% endblock %}
+
+{% block content %}
+
+{% if not active_round %}
+    <div class="alert alert-warning">
+        No OPEN CPI round found.
+    </div>
+{% else %}
+
+<div class="alert alert-info">
+    Current Round:
+    <strong>{{ active_round.survey_month }}/{{ active_round.survey_year }}</strong>
+    — Status:
+    <strong>{{ active_round.round_status }}</strong>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-header bg-white">
+        <h5 class="mb-0">Collected Outlets Waiting for Review</h5>
+    </div>
+
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            
+            <form method="get" class="card shadow-sm border-0 mb-3">
+                <div class="card-body">
+                    <div class="row g-3">
+
+                        <div class="col-md-4">
+                            <label for="island" class="form-label">
+                                Island
+                            </label>
+
+                            <select
+                                name="island"
+                                id="island"
+                                class="form-select"
+                                onchange="this.form.submit()"
+                            >
+                                <option value="">All islands</option>
+
+                                {% for island in islands %}
+                                    <option
+                                        value="{{ island }}"
+                                        {% if selected_island == island %}selected{% endif %}
+                                    >
+                                        {{ island }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+
+            <table class="table table-bordered table-hover mb-0 align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Collector</th>
+                        <th>Island</th>
+                        <th>Outlet</th>
+                        <th>Assignment</th>
+                        <th class="text-end">Total Items</th>
+                        <th class="text-end">Collected</th>
+                        <th class="text-end">Pending</th>
+                        <th style="width:180px;">Progress</th>
+                        <th class="text-end">Outliers</th>
+                        <th class="text-end">Corrections</th>
+                        <th class="text-end">Approved</th>
+                        <th>Collector Message</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in review_rows %}
+                    <tr
+                        {% if row.review_status == "Correction required" %}
+                            class="table-danger"
+
+                        {% elif row.review_status == "Corrected - Pending review" %}
+                            class="table-info"
+
+                        {% elif row.pending_items == 0 %}
+                            class="table-success"
+
+                        {% endif %}
+                    >
+                    
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ row.collector_name }}</td>
+                        <td>{{ row.island_name }}</td>
+                        <td>{{ row.outlet_name }}</td>
+
+                        <td>
+                            {% if row.item_split %}
+                                {{ row.item_split }}
+                            {% else %}
+                                All items
+                            {% endif %}
+                        </td>
+
+                        <td class="text-end">{{ row.total_items }}</td>
+                        <td class="text-end">{{ row.submitted_items }}</td>
+                        <td class="text-end">{{ row.pending_items }}</td>
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="progress flex-grow-1" style="height: 16px;">
+                                    <div class="progress-bar"
+                                         role="progressbar"
+                                         style="width: {{ row.progress_percent }}%;">
+                                    </div>
+                                </div>
+                                <small>{{ row.progress_percent }}%</small>
+                            </div>
+                        </td>
+
+                        <td class="text-end">{{ row.outlier_items }}</td>
+                        <td class="text-end">{{ row.correction_items }}</td>
+                        <td class="text-end">{{ row.approved_items }}</td>
+                        <td>
+                            {% if row.visit and row.visit.incomplete_reason %}
+                                {{ row.visit.incomplete_reason }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {% if row.review_status == "Approved" %}
+                                <span class="badge bg-success">Approved</span>
+
+                            {% elif row.review_status == "Rejected by Supervisor" %}
+                                <span class="badge bg-danger">Rejected by Supervisor</span>
+
+                            {% elif row.review_status == "Correction required" %}
+                                <span class="badge bg-danger">Correction required</span>
+
+                            {% elif row.review_status == "Pending review" %}
+                                <span class="badge bg-warning text-dark">Pending review</span>
+
+                            {% else %}
+                                <span class="badge bg-secondary">{{ row.review_status }}</span>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {% if row.visit %}
+                                <a href="{% url 'supervisor-review-outlet' row.visit.visit_id %}"
+                                class="btn btn-sm btn-primary">
+                                    Review Outlet
+                                </a>
+                            {% else %}
+                                <button class="btn btn-sm btn-secondary" disabled>
+                                    Not started
+                                </button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="15" class="text-center text-muted py-4">
+                            No visits found for current round.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

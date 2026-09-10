@@ -1,0 +1,95 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Edit Outlet{% endblock %}
+{% block page_title %}Edit Outlet{% endblock %}
+
+{% block content %}
+
+<div class="mb-3">
+    <a href="{% url 'supervisor-outlet-detail' outlet.outlet_id %}"
+       class="btn btn-sm btn-outline-secondary">
+        ← Back to Outlet
+    </a>
+</div>
+
+<div class="card dashboard-card">
+    <div class="card-header bg-white">
+        <strong>Edit Outlet</strong>
+    </div>
+
+    <div class="card-body">
+
+        <div class="mb-3">
+            <label class="form-label">Outlet Code</label>
+            <input type="text"
+                   class="form-control"
+                   value="{{ outlet.outlet_code }}"
+                   readonly>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label">Outlet Name</label>
+                    {{ form.outlet_name }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Island</label>
+                    {{ form.island }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Outlet Type</label>
+                    {{ form.outlet_type }}
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Address</label>
+                    {{ form.address_text }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Contact Person</label>
+                    {{ form.contact_person }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Contact Number</label>
+                    {{ form.contact_no }}
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Allowed Radius (meters)</label>
+                    {{ form.allowed_radius_meters }}
+                </div>
+
+                <div class="col-md-3 d-flex align-items-end">
+                    <div class="form-check">
+                        {{ form.is_active }}
+                        <label class="form-check-label">Active</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">
+                    Save Changes
+                </button>
+
+                <a href="{% url 'supervisor-outlet-detail' outlet.outlet_id %}"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

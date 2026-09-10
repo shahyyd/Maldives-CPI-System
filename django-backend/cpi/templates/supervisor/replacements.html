@@ -1,0 +1,791 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Replacements{% endblock %}
+{% block page_title %}Replacements{% endblock %}
+
+{% block content %}
+
+<!-- Summary cards -->
+<div class="row g-3 mb-4">
+
+    <div class="col-md-3">
+        <div class="card border-warning shadow-sm h-100">
+            <div class="card-body text-center">
+                <small class="text-muted">Pending</small>
+                <h3 class="mb-0 text-warning">
+                    {{ pending_count|default:0 }}
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-primary shadow-sm h-100">
+            <div class="card-body text-center">
+                <small class="text-muted">Active Replacements</small>
+                <h3 class="mb-0 text-primary">
+                    {{ active_count|default:0 }}
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-success shadow-sm h-100">
+            <div class="card-body text-center">
+                <small class="text-muted">History</small>
+                <h3 class="mb-0 text-success">
+                    {{ history_count|default:0 }}
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-danger shadow-sm h-100">
+            <div class="card-body text-center">
+                <small class="text-muted">Rejected</small>
+                <h3 class="mb-0 text-danger">
+                    {{ rejected_count|default:0 }}
+                </h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Navigation tabs -->
+<ul class="nav nav-tabs mb-3" id="replacementTabs" role="tablist">
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active"
+                id="pending-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#pending"
+                type="button"
+                role="tab"
+                aria-controls="pending"
+                aria-selected="true">
+            Pending
+            <span class="badge bg-warning text-dark ms-1">
+                {{ pending_count|default:0 }}
+            </span>
+        </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link"
+                id="active-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#active"
+                type="button"
+                role="tab"
+                aria-controls="active"
+                aria-selected="false">
+            Active Replacements
+            <span class="badge bg-primary ms-1">
+                {{ active_count|default:0 }}
+            </span>
+        </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link"
+                id="history-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#history"
+                type="button"
+                role="tab"
+                aria-controls="history"
+                aria-selected="false">
+            History
+            <span class="badge bg-success ms-1">
+                {{ history_count|default:0 }}
+            </span>
+        </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link"
+                id="rejected-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#rejected"
+                type="button"
+                role="tab"
+                aria-controls="rejected"
+                aria-selected="false">
+            Rejected
+            <span class="badge bg-danger ms-1">
+                {{ rejected_count|default:0 }}
+            </span>
+        </button>
+    </li>
+
+</ul>
+
+
+<div class="tab-content" id="replacementTabsContent">
+
+    <!-- Pending replacements -->
+    <div class="tab-pane fade show active"
+         id="pending"
+         role="tabpanel"
+         aria-labelledby="pending-tab"
+         tabindex="0">
+
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Outlet</th>
+                                <th>Basket Item</th>
+                                <th>Current Product</th>
+                                <th>Item Photo</th>
+                                <th>Replaced Product</th>
+                                <th>Replacement Photo</th>
+                                <th>Current Price</th>
+                                <th>Reason</th>
+                                <th>Submitted</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for r in pending_replacements %}
+                            <tr>
+
+                                <!-- Outlet -->
+                                <td>
+                                    {{ r.old_collection_item.outlet.outlet_name|default:"-" }}
+                                </td>
+
+                                <!-- Basket Item -->
+                                <td>
+                                    <strong>
+                                        {{ r.old_collection_item.basket_item.basket_item_name|default:"-" }}
+                                    </strong>
+
+                                    {% if r.old_collection_item.basket_item.basket_code %}
+                                        <br>
+                                        <small class="text-muted">
+                                            {{ r.old_collection_item.basket_item.basket_code }}
+                                        </small>
+                                    {% endif %}
+                                </td>
+
+                                <!-- Current Product -->
+                                <td>
+                                    <strong>
+                                        {{ r.old_collection_item.product_name|default:"-" }}
+                                    </strong>
+
+                                    {% if r.old_collection_item.product_specification %}
+                                        <div class="small text-muted mt-1 specification">
+                                            {{ r.old_collection_item.product_specification|linebreaksbr }}
+                                        </div>
+                                    {% endif %}
+                                </td>
+
+                                <!-- Item Photo -->
+                                <td class="text-center">
+                                    {% if r.item_photo %}
+                                        <img src="{{ MEDIA_URL }}{{ r.item_photo.file_path }}"
+                                            alt="Item Photo"
+                                            class="img-thumbnail preview-photo"
+                                            data-image="{{ MEDIA_URL }}{{ r.item_photo.file_path }}"
+                                            style="width:90px;height:90px;object-fit:cover;cursor:pointer;">
+                                    {% else %}
+                                        <span class="text-muted">No Photo</span>
+                                    {% endif %}
+                                </td>
+
+                                <!-- Replaced Product -->
+                                <td style="vertical-align: top;">
+                                    <strong>
+                                        {{ r.new_name|default:"-" }}
+                                    </strong>
+
+                                    <div class="small text-muted mt-1 specification">
+
+                                        {% if r.new_type %}
+                                            <div>Type: {{ r.new_type }}</div>
+                                        {% endif %}
+
+                                        {% if r.new_size %}
+                                            <div>Size of units: {{ r.new_size }}</div>
+                                        {% endif %}
+
+                                        {% if r.new_unit %}
+                                            <div>Unit of Measure: {{ r.new_unit }}</div>
+                                        {% endif %}
+
+                                        {% if r.new_material %}
+                                            <div>Material: {{ r.new_material }}</div>
+                                        {% endif %}
+
+                                        {% if r.new_brand %}
+                                            <div>Brand: {{ r.new_brand }}</div>
+                                        {% endif %}
+
+                                        {% if r.new_made_in %}
+                                            <div>Made in: {{ r.new_made_in }}</div>
+                                        {% endif %}
+
+                                    </div>
+                                </td>
+
+                                <!-- Replacement Photo -->
+                                <td class="text-center">
+                                    {% if r.replacement_photo %}
+                                        <img src="{{ MEDIA_URL }}{{ r.replacement_photo.file_path }}"
+                                            class="img-thumbnail preview-photo"
+                                            data-image="{{ MEDIA_URL }}{{ r.replacement_photo.file_path }}"
+                                            style="width:90px;height:90px;object-fit:cover;cursor:pointer;">
+                                    {% else %}
+                                        <span class="text-muted">No Photo</span>
+                                    {% endif %}
+                                </td>
+
+                                <!-- Current Price -->
+                                <td>
+                                    {% if r.new_price %}
+                                        {{ r.new_price }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+
+                                <!-- Reason -->
+                                <td>
+                                    {{ r.reason|default:"-" }}
+                                </td>
+
+                                <td>
+                                    {{ r.created_at|date:"Y-m-d" }}
+                                </td>
+
+                                <td class="text-end text-nowrap">
+
+                                    <form method="post"
+                                          action="{% url 'supervisor-replacement-approve' r.replacement_id %}"
+                                          class="d-inline">
+
+                                        {% csrf_token %}
+
+                                        <button type="submit"
+                                                class="btn btn-sm btn-success me-1"
+                                                onclick="return confirm('Approve this replacement request?');">
+                                            Approve
+                                        </button>
+
+                                    </form>
+
+                                    <form method="post"
+                                        action="{% url 'supervisor-replacement-reject' r.replacement_id %}"
+                                        class="d-inline replacement-reject-form">
+
+                                        {% csrf_token %}
+
+                                        <div class="replacement-reason-container mt-2"
+                                            style="display:none; min-width:240px;">
+
+                                            <textarea name="rejection_comment"
+                                                    class="form-control form-control-sm replacement-reason"
+                                                    rows="2"
+                                                    placeholder="Enter rejection reason"></textarea>
+                                        </div>
+
+                                        <button type="button"
+                                                class="btn btn-sm btn-danger replacement-reject-button">
+                                            Reject
+                                        </button>
+
+                                    </form>
+
+
+                                </td>
+
+                            </tr>
+
+                            {% empty %}
+
+                            <tr>
+                                <td colspan="8" class="text-center text-muted py-4">
+                                    No pending replacement requests.
+                                </td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Active replacements -->
+    <div class="tab-pane fade"
+         id="active"
+         role="tabpanel"
+         aria-labelledby="active-tab"
+         tabindex="0">
+
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover align-middle mb-0">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>Outlet</th>
+                                <th>Basket Item</th>
+                                <th>Current Active Product</th>
+                                <th>Previous Product</th>
+                                <th>Active Since</th>
+                                <th>Status</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for r in active_replacements %}
+                            <tr>
+
+                                <td>
+                                    {{ r.old_collection_item.outlet.outlet_name|default:"-" }}
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        {{ r.old_collection_item.basket_item.basket_item_name|default:"-" }}
+                                    </strong>
+
+                                    {% if r.old_collection_item.basket_item.basket_code %}
+                                    <br>
+                                    <small class="text-muted">
+                                        {{ r.old_collection_item.basket_item.basket_code }}
+                                    </small>
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    {% if r.approved_collection_item %}
+                                        <strong>
+                                            {{ r.approved_collection_item.product_name|default:"-" }}
+                                        </strong>
+
+                                        {% if r.approved_collection_item.product_specification %}
+                                        <br>
+                                        <small class="text-muted">
+                                            {{ r.approved_collection_item.product_specification }}
+                                        </small>
+                                        {% endif %}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        {{ r.old_collection_item.product_name|default:"-" }}
+                                    </strong>
+
+                                    {% if r.old_collection_item.product_specification %}
+                                    <br>
+                                    <small class="text-muted">
+                                        {{ r.old_collection_item.product_specification }}
+                                    </small>
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    {% if r.approved_collection_item and r.approved_collection_item.valid_from %}
+                                        {{ r.approved_collection_item.valid_from|date:"Y-m-d" }}
+                                    {% elif r.reviewed_at %}
+                                        {{ r.reviewed_at|date:"Y-m-d" }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    <span class="badge bg-primary">
+                                        Active Replacement
+                                    </span>
+                                </td>
+
+                                <td class="text-end text-nowrap">
+
+                                    <form method="post"
+                                          action="{% url 'supervisor-replacement-restore-original' r.replacement_id %}"
+                                          class="d-inline">
+
+                                        {% csrf_token %}
+
+                                        <button type="submit"
+                                                class="btn btn-sm btn-outline-success"
+                                                onclick="return confirm('Restore the original product and deactivate the current replacement?');">
+                                            Restore Original
+                                        </button>
+
+                                    </form>
+
+                                </td>
+
+                            </tr>
+
+                            {% empty %}
+
+                            <tr>
+                                <td colspan="7" class="text-center text-muted py-4">
+                                    No active replacements.
+                                </td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Replacement history -->
+    <div class="tab-pane fade"
+         id="history"
+         role="tabpanel"
+         aria-labelledby="history-tab"
+         tabindex="0">
+
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover align-middle mb-0">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>Outlet</th>
+                                <th>Basket Item</th>
+                                <th>Previous Product</th>
+                                <th>Replacement Product</th>
+                                <th>Status</th>
+                                <th>Reviewed</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for r in replacement_history %}
+                            <tr>
+
+                                <td>
+                                    {{ r.old_collection_item.outlet.outlet_name|default:"-" }}
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        {{ r.old_collection_item.basket_item.basket_item_name|default:"-" }}
+                                    </strong>
+
+                                    {% if r.old_collection_item.basket_item.basket_code %}
+                                    <br>
+                                    <small class="text-muted">
+                                        {{ r.old_collection_item.basket_item.basket_code }}
+                                    </small>
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    {{ r.old_collection_item.product_name|default:"-" }}
+                                </td>
+
+                                <td>
+                                    {% if r.approved_collection_item %}
+                                        {{ r.approved_collection_item.product_name|default:"-" }}
+                                    {% else %}
+                                        {{ r.new_name|default:"-" }}
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    {% if r.replacement_status == "APPROVED" %}
+
+                                        {% if r.approved_collection_item and r.approved_collection_item.is_active %}
+                                            <span class="badge bg-primary">
+                                                Active Replacement
+                                            </span>
+                                        {% else %}
+                                            <span class="badge bg-success">
+                                                Approved
+                                            </span>
+                                        {% endif %}
+
+                                    {% elif r.replacement_status == "REJECTED" %}
+
+                                        <span class="badge bg-danger">
+                                            Rejected
+                                        </span>
+
+                                    {% elif r.replacement_status == "REVERTED" %}
+
+                                        <span class="badge bg-info text-dark">
+                                            Original Restored
+                                        </span>
+
+                                    {% elif r.replacement_status == "REPLACED_AGAIN" %}
+
+                                        <span class="badge bg-warning text-dark">
+                                            Replaced Again
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="badge bg-secondary">
+                                            {{ r.get_replacement_status_display|default:r.replacement_status }}
+                                        </span>
+
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    {% if r.reviewed_at %}
+                                        {{ r.reviewed_at|date:"Y-m-d" }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+
+                            </tr>
+
+                            {% empty %}
+
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">
+                                    No replacement history.
+                                </td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Rejected replacements -->
+    <div class="tab-pane fade"
+         id="rejected"
+         role="tabpanel"
+         aria-labelledby="rejected-tab"
+         tabindex="0">
+
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover align-middle mb-0">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>Outlet</th>
+                                <th>Basket Item</th>
+                                <th>Current Product</th>
+                                <th>Rejected Product</th>
+                                <th>Reason</th>
+                                <th>Rejection Comment</th>
+                                <th>Submitted</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for r in rejected_replacements %}
+                            <tr>
+
+                                <td>
+                                    {{ r.old_collection_item.outlet.outlet_name|default:"-" }}
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        {{ r.old_collection_item.basket_item.basket_item_name|default:"-" }}
+                                    </strong>
+
+                                    {% if r.old_collection_item.basket_item.basket_code %}
+                                    <br>
+                                    <small class="text-muted">
+                                        {{ r.old_collection_item.basket_item.basket_code }}
+                                    </small>
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        {{ r.old_collection_item.product_name|default:"-" }}
+                                    </strong>
+
+                                    {% if r.old_collection_item.product_specification %}
+                                    <br>
+                                    <small class="text-muted">
+                                        {{ r.old_collection_item.product_specification }}
+                                    </small>
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        {{ r.new_name|default:"-" }}
+                                    </strong>
+
+                                    <br>
+
+                                    <small class="text-muted">
+                                        {% if r.new_type %}
+                                            Type: {{ r.new_type }}
+                                        {% endif %}
+
+                                        {% if r.new_size %}
+                                            {% if r.new_type %} | {% endif %}
+                                            Size: {{ r.new_size }}
+                                        {% endif %}
+
+                                        {% if r.new_unit %}
+                                            {% if r.new_type or r.new_size %} | {% endif %}
+                                            Unit: {{ r.new_unit }}
+                                        {% endif %}
+
+                                        {% if r.new_brand %}
+                                            <br>Brand: {{ r.new_brand }}
+                                        {% endif %}
+
+                                        {% if r.new_made_in %}
+                                            <br>Made in: {{ r.new_made_in }}
+                                        {% endif %}
+                                    </small>
+                                </td>
+
+                                <td>
+                                    {{ r.reason|default:"-" }}
+                                </td>
+
+                                <td>
+                                    {{ r.rejection_comment|default:"-" }}
+                                </td>
+
+                                <td>
+                                    {{ r.created_at|date:"Y-m-d" }}
+                                </td>
+
+                            </tr>
+
+                            {% empty %}
+
+                            <tr>
+                                <td colspan="7" class="text-center text-muted py-4">
+                                    No rejected replacement requests.
+                                </td>
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Image Preview Modal -->
+<div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Photo Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <img id="modalImage"
+                     src=""
+                     class="img-fluid rounded"
+                     style="max-height:80vh;">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modal = new bootstrap.Modal(document.getElementById("photoModal"));
+    const modalImage = document.getElementById("modalImage");
+
+    document.querySelectorAll(".preview-photo").forEach(function(img){
+
+        img.addEventListener("click", function(){
+
+            modalImage.src = this.dataset.image;
+
+            modal.show();
+
+        });
+
+    });
+
+});
+
+document.querySelectorAll(".replacement-reject-form").forEach(function (form) {
+
+    const button = form.querySelector(".replacement-reject-button");
+    const reasonContainer = form.querySelector(".replacement-reason-container");
+    const reasonInput = form.querySelector(".replacement-reason");
+
+    button.addEventListener("click", function () {
+
+        if (reasonContainer.style.display === "none") {
+            reasonContainer.style.display = "block";
+            button.textContent = "Confirm Reject";
+            reasonInput.focus();
+            return;
+        }
+
+        const reason = reasonInput.value.trim();
+
+        if (!reason) {
+            alert("Please enter a rejection reason.");
+            reasonInput.focus();
+            return;
+        }
+
+        if (confirm("Reject this replacement request?")) {
+            form.submit();
+        }
+    });
+});
+</script>
+
+{% endblock %}

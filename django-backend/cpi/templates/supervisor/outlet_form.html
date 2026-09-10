@@ -1,0 +1,83 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Add Outlet{% endblock %}
+{% block page_title %}Add Outlet{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Outlet Name</label>
+                <input type="text"
+                       name="outlet_name"
+                       class="form-control"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Island</label>
+                <select name="island" class="form-select" required>
+                    <option value="">Select Island</option>
+
+                    {% for island in islands %}
+                    <option value="{{ island.island_id }}">
+                        {{ island.island_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Outlet Type</label>
+                <select name="outlet_type" class="form-select" required>
+                    <option value="">Select Outlet Type</option>
+
+                    {% for type in outlet_types %}
+                    <option value="{{ type.outlet_type_id }}">
+                        {{ type.outlet_type_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <textarea name="address_text"
+                          class="form-control"
+                          rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Contact Person</label>
+                <input type="text"
+                       name="contact_person"
+                       class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Contact Number</label>
+                <input type="text"
+                       name="contact_no"
+                       class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Save Outlet
+            </button>
+
+            <a href="{% url 'supervisor-outlets' %}"
+               class="btn btn-secondary">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

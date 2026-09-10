@@ -1,0 +1,315 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Edit Basket Item{% endblock %}
+{% block page_title %}Edit Basket Item{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'supervisor-products' %}"
+   class="btn btn-sm btn-outline-secondary mb-3">
+    ← Back to Product Register
+</a>
+
+<div class="card">
+    <div class="card-body">
+
+        <h5 class="mb-3">
+            Edit Basket Item:
+            {{ product.basket_item_code|default:product.basket_code }}
+        </h5>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Basket Item Name</label>
+                <input
+                    type="text"
+                    name="basket_item_name"
+                    value="{{ product.basket_item_name|default:'' }}"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea
+                    name="description"
+                    class="form-control"
+                    rows="3"
+                    required
+                >{{ product.description|default:'' }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Basket Item Code</label>
+                <input
+                    type="text"
+                    name="basket_item_code"
+                    value="{{ product.basket_item_code|default:'' }}"
+                    class="form-control"
+                >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Basket Code</label>
+                <input
+                    type="text"
+                    value="{{ product.basket_code|default:'' }}"
+                    class="form-control"
+                    readonly
+                >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">COICOP 2016 Code</label>
+                <input
+                    type="text"
+                    name="coicop_2016"
+                    value="{{ product.coicop_2016|default:'' }}"
+                    class="form-control"
+                >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Division</label>
+
+                <select id="division-select" name="coicop_division_code" class="form-select">
+                    <option value="">Select Division</option>
+
+                    {% for division in divisions %}
+                        <option
+                            value="{{ division.coicop_division_code }}"
+                            {% if product.coicop_division_code == division.coicop_division_code %}selected{% endif %}
+                        >
+                            {{ division.coicop_division_code }} -
+                            {{ division.coicop_division_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Group</label>
+
+                    <select id="group-select" name="coicop_group_code" class="form-select"
+                    <option value="">Select Group</option>
+
+                    {% for group in groups %}
+                        <option
+                            value="{{ group.coicop_group_code }}"
+                            {% if product.coicop_group_code == group.coicop_group_code %}selected{% endif %}
+                        >
+                            {{ group.coicop_group_code }} -
+                            {{ group.coicop_group_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Class</label>
+
+                    <select id="class-select" name="coicop_class_code" class="form-select"
+>
+                    <option value="">Select Class</option>
+
+                    {% for class_item in classes %}
+                        <option
+                            value="{{ class_item.coicop_class_code }}"
+                            {% if product.coicop_class_code == class_item.coicop_class_code %}selected{% endif %}
+                        >
+                            {{ class_item.coicop_class_code }} -
+                            {{ class_item.coicop_class_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Subclass</label>
+
+                <select id="subclass-select" name="coicop_subclass_code" class="form-select"
+>
+                    <option value="">Select Subclass</option>
+
+                    {% for subclass in subclasses %}
+                        <option
+                            value="{{ subclass.coicop_subclass_code }}"
+                            {% if product.coicop_subclass_code == subclass.coicop_subclass_code %}selected{% endif %}
+                        >
+                            {{ subclass.coicop_subclass_code }} -
+                            {{ subclass.coicop_subclass_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Display Order</label>
+                <input
+                    type="number"
+                    name="display_order"
+                    value="{{ product.display_order|default:'' }}"
+                    class="form-control"
+                >
+            </div>
+
+            <div class="form-check mb-3">
+                <input
+                    type="checkbox"
+                    name="is_active"
+                    class="form-check-input"
+                    {% if product.is_active %}checked{% endif %}
+                >
+                <label class="form-check-label">Active</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{{ hierarchy_rows|json_script:"basket-hierarchy-data" }}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hierarchy = JSON.parse(
+        document.getElementById("basket-hierarchy-data").textContent
+    );
+
+    const divisionSelect = document.getElementById("division-select");
+    const groupSelect = document.getElementById("group-select");
+    const classSelect = document.getElementById("class-select");
+    const subclassSelect = document.getElementById("subclass-select");
+
+    function loadGroups() {
+        const selectedDivision = divisionSelect.value;
+        const currentGroup = groupSelect.value;
+
+        const groupMap = new Map();
+
+        hierarchy
+            .filter(row =>
+                row.coicop_division_code === selectedDivision
+            )
+            .forEach(row => {
+                if (row.coicop_group_code) {
+                    groupMap.set(
+                        row.coicop_group_code,
+                        row.coicop_group_name
+                    );
+                }
+            });
+
+        groupSelect.innerHTML =
+            '<option value="">Select Group</option>';
+
+        for (const [code, name] of groupMap) {
+            const option = document.createElement("option");
+            option.value = code;
+            option.textContent = `${code} - ${name}`;
+
+            if (code === currentGroup) {
+                option.selected = true;
+            }
+
+            groupSelect.appendChild(option);
+        }
+    }
+
+    function loadClasses() {
+        const selectedGroup = groupSelect.value;
+        const currentClass = classSelect.value;
+
+        const classMap = new Map();
+
+        hierarchy
+            .filter(row =>
+                row.coicop_group_code === selectedGroup
+            )
+            .forEach(row => {
+                if (row.coicop_class_code) {
+                    classMap.set(
+                        row.coicop_class_code,
+                        row.coicop_class_name
+                    );
+                }
+            });
+
+        classSelect.innerHTML =
+            '<option value="">Select Class</option>';
+
+        for (const [code, name] of classMap) {
+            const option = document.createElement("option");
+            option.value = code;
+            option.textContent = `${code} - ${name}`;
+
+            if (code === currentClass) {
+                option.selected = true;
+            }
+
+            classSelect.appendChild(option);
+        }
+    }
+
+    function loadSubclasses() {
+        const selectedClass = classSelect.value;
+        const currentSubclass = subclassSelect.value;
+
+        const subclassMap = new Map();
+
+        hierarchy
+            .filter(row =>
+                row.coicop_class_code === selectedClass
+            )
+            .forEach(row => {
+                if (row.coicop_subclass_code) {
+                    subclassMap.set(
+                        row.coicop_subclass_code,
+                        row.coicop_subclass_name
+                    );
+                }
+            });
+
+        subclassSelect.innerHTML =
+            '<option value="">Select Subclass</option>';
+
+        for (const [code, name] of subclassMap) {
+            const option = document.createElement("option");
+
+            option.value = code;
+            option.textContent = `${code} - ${name}`;
+
+            if (code === currentSubclass) {
+                option.selected = true;
+            }
+
+            subclassSelect.appendChild(option);
+        }
+    }
+
+
+    divisionSelect.addEventListener("change", function () {
+        loadGroups();
+        loadClasses();
+        loadSubclasses();
+    });
+
+    groupSelect.addEventListener("change", function () {
+        loadClasses();
+        loadSubclasses();
+    });
+
+    classSelect.addEventListener("change", function () {
+        loadSubclasses();
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,208 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Collection Monitoring{% endblock %}
+{% block page_title %}Collection Monitoring{% endblock %}
+
+{% block content %}
+
+<p class="text-muted mb-4">
+    Monitor CPI collection progress for the current round.
+</p>
+
+{% if not active_round %}
+    <div class="alert alert-warning">
+        No OPEN CPI round found.
+    </div>
+{% else %}
+
+<div class="alert alert-info">
+    Current Round:
+    <strong>{{ active_round.survey_month }}/{{ active_round.survey_year }}</strong>
+    — Status:
+    <strong>{{ active_round.round_status }}</strong>
+</div>
+
+<form method="get" class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+        <div class="row g-3 align-items-end">
+
+            <div class="col-md-4">
+
+                <select
+                    name="island"
+                    id="island"
+                    class="form-select"
+                    onchange="this.form.submit()"
+                >
+                    <option value="">All islands</option>
+
+                    {% for island in islands %}
+                        <option
+                            value="{{ island }}"
+                            {% if selected_island == island %}selected{% endif %}
+                        >
+                            {{ island }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-2">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small">Assigned Outlets</div>
+                <h4 class="mb-0">{{ total_assigned_outlets }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small">Started Assignments</div>
+                <h4 class="mb-0">{{ visits_started }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small">Completed Assignments</div>
+                <h4 class="mb-0">{{ visits_completed }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small">Items Collected</div>
+                <h4 class="mb-0">{{ collected_items }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small">Pending Items</div>
+                <h4 class="mb-0">{{ pending_items }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small">Outliers</div>
+                <h4 class="mb-0">{{ outlier_items }}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+        <div class="d-flex justify-content-between mb-2">
+            <strong>Overall Collection Progress</strong>
+            <strong>{{ progress_percent }}%</strong>
+        </div>
+
+        <div class="progress" style="height: 22px;">
+            <div class="progress-bar"
+                 role="progressbar"
+                 style="width: {{ progress_percent }}%;">
+                {{ progress_percent }}%
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-header bg-white">
+        <h5 class="mb-0">Outlet Collection Progress</h5>
+    </div>
+
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered mb-0 align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Collector</th>
+                        <th>Island</th>
+                        <th>Outlet</th>
+                        <th>Split</th>
+                        <th class="text-end">Total Items</th>
+                        <th class="text-end">Collected</th>
+                        <th class="text-end">Pending</th>
+                        <th style="width: 180px;">Progress</th>
+                        <th>Visit Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in outlet_progress %}
+                    <tr
+                        {% if row.pending_items == 0 %}
+                            class="table-success"
+                        {% endif %}
+                    >
+                    
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ row.collector_name }}</td>
+                        <td>{{ row.island_name }}</td>
+                        <td>{{ row.outlet_name }}</td>
+                        <td>
+                            {% if row.item_split %}
+                                {{ row.item_split }}
+                            {% else %}
+                                All items
+                            {% endif %}
+                        </td>
+                        <td class="text-end">{{ row.total_items }}</td>
+                        <td class="text-end">{{ row.collected_items }}</td>
+                        <td class="text-end">{{ row.pending_items }}</td>
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="progress flex-grow-1" style="height: 16px;">
+                                    <div class="progress-bar"
+                                         role="progressbar"
+                                         style="width: {{ row.progress_percent }}%;">
+                                    </div>
+                                </div>
+                                <small>{{ row.progress_percent }}%</small>
+                            </div>
+                        </td>
+                        <td>
+                            {% if row.visit_status == "COMPLETED" %}
+                                <span class="badge bg-success">Completed</span>
+                            {% elif row.visit_status == "IN_PROGRESS" %}
+                                <span class="badge bg-warning text-dark">In progress</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Not started</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="10" class="text-center text-muted py-4">
+                            No assignment progress found.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

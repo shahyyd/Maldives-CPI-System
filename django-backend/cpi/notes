@@ -2,14 +2,44 @@ venv\Scripts\activate
 
 python manage.py runserver
 
+python manage.py check
+
+& "F:\Maldives-CPI-System\venv\Scripts\Activate.ps1"
+F:\Maldives-CPI-System\venv\Scripts\activate
+
+cd F:\Maldives-CPI-System\django-backend
+
+Django administration
+http://127.0.0.1:8000/admin/cpi/appuser/
+
 
 http://127.0.0.1:8000/admin/cpi/dimoutlet/
 
+supevisor dashboad
+http://127.0.0.1:8000/api/supervisor/
+
 
 CTRL + C
+python manage.py check
 python manage.py runserver
 
 CTRL + C
 python manage.py runserver 0.0.0.0:8000
 
 http://127.0.0.1:8000/api/submit-price/
+
+http://127.0.0.1:8000/api/supervisor/#
+
+http://127.0.0.1:8000/api/supervisor/rounds/
+
+python manage.py import_collection_items
+
+python manage.py import_historical_prices
+
+
+First, start the Django shell:
+
+
+PowerShell
+python manage.py shell
+

@@ -1,0 +1,73 @@
+body {
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    width: 300px !important;
+    min-width: 300px !important;
+    flex: 0 0 300px;
+    min-height: 100vh;
+    background-color: #1f2937;
+}
+
+.nav-link-custom {
+    display: block;
+    padding: 10px 12px;
+    margin-bottom: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.nav-link-custom:hover {
+    color: #ffffff;
+    background-color: #2f3b4f;
+}
+
+.nav-link-custom.active {
+    background-color: #313b4d;
+    color: #ffffff;
+    border-left: 5px solid #4f9cf9;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+    font-weight: 600;
+}
+
+.main-content {
+    min-height: 100vh;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.topbar {
+    background-color: #ffffff;
+    padding: 18px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.content-area {
+    padding: 24px;
+}
+
+.dashboard-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.outlier-yellow {
+    background-color: #ffe69c;
+    color: #664d03;
+}
+
+.outlier-orange {
+    background-color: #fd9843;
+    color: white;
+}
+
+.outlier-red {
+    background-color: #dc3545;
+    color: white;
+}

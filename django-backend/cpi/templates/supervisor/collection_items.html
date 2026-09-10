@@ -1,0 +1,214 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Collection Items{% endblock %}
+{% block page_title %}Collection Items{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+    <button class="btn btn-primary">
+        + Add Collection Item
+    </button>
+</div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <form method="get" class="row g-2">
+            <div class="col-md-3">
+                <input
+                    type="text"
+                    name="q"
+                    value="{{ search_query }}"
+                    class="form-control"
+                    placeholder="Search product..."
+                >
+            </div>
+
+            <div class="col-md-2">
+                <select
+                    name="island"
+                    class="form-select"
+                    onchange="this.form.submit()">
+                    <option value="">All Islands</option>
+
+                    {% for island in islands %}
+                    <option
+                        value="{{ island.island_id }}"
+                        {% if selected_island == island.island_id|stringformat:"s" %}selected{% endif %}
+                    >
+                        {{ island.island_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <select name="outlet_type" class="form-select" onchange="this.form.submit()">
+                    <option value="">All Outlet Types</option>
+
+                    {% for type in outlet_types %}
+                    <option
+                        value="{{ type.outlet_type_id }}"
+                        {% if selected_outlet_type == type.outlet_type_id|stringformat:"s" %}selected{% endif %}
+                    >
+                        {{ type.outlet_type_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <select
+                    name="outlet"
+                    class="form-select"
+                    onchange="this.form.submit()">
+                    <option value="">All Outlets</option>
+
+                    {% for outlet in outlets %}
+                    <option
+                        value="{{ outlet.outlet_id }}"
+                        {% if selected_outlet == outlet.outlet_id|stringformat:"s" %}selected{% endif %}
+                    >
+                        {{ outlet.outlet_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-1">
+                <select name="status" class="form-select" onchange="this.form.submit()">
+                    <option value="">Status</option>
+
+                    <option
+                        value="active"
+                        {% if selected_status == "active" %}selected{% endif %}
+                    >
+                        Active
+                    </option>
+
+                    <option
+                        value="inactive"
+                        {% if selected_status == "inactive" %}selected{% endif %}
+                    >
+                        Inactive
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <select
+                    name="specification"
+                    class="form-select"
+                    onchange="this.form.submit()">
+                    <option value="">Specification</option>
+
+                    <option
+                        value="missing"
+                        {% if selected_specification == "missing" %}selected{% endif %}
+                    >
+                        Missing
+                    </option>
+
+                    <option
+                        value="available"
+                        {% if selected_specification == "available" %}selected{% endif %}
+                    >
+                        Available
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-md-12 mt-2">
+                <button type="submit" class="btn btn-primary">
+                    Filter
+                </button>
+
+                <a href="{% url 'supervisor-collection-items' %}"
+                class="btn btn-outline-secondary">
+                    Clear
+                </a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body p-0">
+
+        <table class="table table-hover table-sm mb-0 align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Product Code</th>
+                    <th>Basket Item</th>
+                    <th>Product Name</th>
+                    <th>Outlet</th>
+                    <th>COICOP Subclass</th>
+                    <th>Brand / Detail</th>
+                    <th>Last Price</th>
+                    <th>Status</th>
+                    <th width="160">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.product_code|default:"-" }}</td>
+
+                    <td>
+                        {{ item.basket_item.basket_item_code|default:"-" }}
+                        -
+                        {{ item.basket_item.basket_item_name|default:item.matched_basket_name }}
+                    </td>
+
+                    <td>{{ item.product_name|default:"-" }}</td>
+
+                    <td>{{ item.outlet.outlet_name|default:"-" }}</td>
+
+                    <td>
+                        {{ item.basket_item.coicop_subclass_code|default:"-" }}
+                        -
+                        {{ item.basket_item.coicop_subclass_name|default:"-" }}
+                    </td>
+
+                    <td>{{ item.brand|default:"-" }}</td>
+
+                    <td>{{ item.last_price|default:"-" }}</td>
+
+                    <td>
+                        {% if item.is_active %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Inactive</span>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        <a href="{% url 'supervisor-collection-item-detail' item.collection_item_id %}"
+                        class="btn btn-sm btn-outline-primary">
+                            View
+                        </a>
+
+                        <a href="{% url 'supervisor-collection-item-edit' item.collection_item_id %}"
+                        class="btn btn-sm btn-outline-secondary">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="10" class="text-center py-4">
+                        No collection items found.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

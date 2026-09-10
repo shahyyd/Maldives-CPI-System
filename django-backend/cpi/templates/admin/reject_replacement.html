@@ -1,0 +1,29 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+
+<h1>Reject Replacement</h1>
+
+<p><strong>Old item:</strong> {{ replacement.old_collection_item }}</p>
+<p><strong>New item:</strong> {{ replacement.new_name }}</p>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div>
+        <label><strong>Reason for rejection:</strong></label><br>
+        <textarea name="rejection_comment" rows="6" cols="80" required></textarea>
+    </div>
+
+    <br>
+
+    <button type="submit" style="background:#dc3545;color:white;padding:8px 14px;border:0;border-radius:4px;">
+        Reject Replacement
+    </button>
+
+    <a href="{% url 'admin:cpi_cpireplacement_changelist' %}" style="margin-left:10px;">
+        Cancel
+    </a>
+</form>
+
+{% endblock %}

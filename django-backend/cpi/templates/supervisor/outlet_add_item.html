@@ -1,0 +1,86 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Add Collection Item{% endblock %}
+{% block page_title %}Add Collection Item{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'supervisor-outlet-detail' outlet.outlet_id %}"
+   class="btn btn-sm btn-outline-secondary mb-3">
+    ← Back to Outlet
+</a>
+
+<div class="card">
+    <div class="card-body">
+
+        <h5 class="mb-1">{{ outlet.outlet_name }}</h5>
+        <p class="text-muted mb-4">
+            Add a new collection item to this outlet.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Basket Item</label>
+
+                <select
+                    name="basket_item"
+                    class="form-select"
+                    required
+                >
+                    <option value="">Select Basket Item</option>
+
+                    {% for basket in basket_items %}
+                        <option value="{{ basket.basket_id }}">
+                            {{ basket.basket_item_code }}
+                            -
+                            {{ basket.basket_item_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Product Name</label>
+
+                <input
+                    type="text"
+                    name="product_name"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Brand</label>
+
+                <input
+                    type="text"
+                    name="brand"
+                    class="form-control"
+                >
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Product Specification
+                </label>
+                <textarea
+                    name="product_specification"
+                    class="form-control"
+                    rows="6"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Add Collection Item
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

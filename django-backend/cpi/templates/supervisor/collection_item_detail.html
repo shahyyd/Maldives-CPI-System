@@ -1,0 +1,72 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Collection Item Details{% endblock %}
+{% block page_title %}Collection Item Details{% endblock %}
+
+{% block content %}
+
+<div class="mb-3">
+    <a href="{% url 'supervisor-collection-items' %}" class="btn btn-sm btn-outline-secondary">
+        ← Back to Collection Items
+    </a>
+</div>
+
+<div class="card dashboard-card">
+    <div class="card-header bg-white">
+        <strong>{{ item.product_name }}</strong>
+    </div>
+
+    <div class="card-body">
+        <div class="row g-3">
+
+            <div class="col-md-3">
+                <strong>Product Code</strong><br>
+                {{ item.product_code|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Outlet</strong><br>
+                {{ item.outlet.outlet_name }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Brand</strong><br>
+                {{ item.brand|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Last Price</strong><br>
+                {{ item.last_price|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Subgroup</strong><br>
+                {{ item.excel_subgroup|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Specification No</strong><br>
+                {{ item.specification_no|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Status</strong><br>
+                {% if item.is_active %}
+                    <span class="badge bg-success">Active</span>
+                {% else %}
+                    <span class="badge bg-secondary">Inactive</span>
+                {% endif %}
+            </div>
+
+            <div class="col-md-12">
+                <strong>Product Specification</strong>
+                <div class="border rounded p-3 mt-2 bg-light">
+                    {{ item.product_specification|linebreaksbr }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

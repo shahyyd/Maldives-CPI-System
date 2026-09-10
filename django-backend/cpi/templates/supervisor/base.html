@@ -1,0 +1,195 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>
+        {% block title %}Maldives CPI System{% endblock %}
+    </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link href="{% static 'supervisor/css/style.css' %}?v=3"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div class="d-flex">
+
+    <!-- Sidebar -->
+    <div class="sidebar p-3">
+
+        <h5 class="text-white mb-4">
+            Maldives CPI System
+        </h5>
+
+        <!-- Available to Admin, Supervisor and Viewer -->
+        <a href="{% url 'supervisor-dashboard' %}"
+           class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-dashboard' %}active{% endif %}">
+            Dashboard
+        </a>
+
+
+        <!-- Available only to Administrator and Supervisor -->
+        {% if request.user.cpi_profile.is_admin or request.user.cpi_profile.is_supervisor %}
+
+            <a href="{% url 'supervisor-rounds' %}"
+               class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-rounds' or request.resolver_match.url_name == 'supervisor-round-create' %}active{% endif %}">
+                Survey Rounds
+            </a>
+
+            <a href="{% url 'supervisor-outlets' %}"
+               class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-outlets' or request.resolver_match.url_name == 'supervisor-outlet-create' or request.resolver_match.url_name == 'supervisor-outlet-detail' or request.resolver_match.url_name == 'supervisor-outlet-edit' or request.resolver_match.url_name == 'supervisor-outlet-add-item' %}active{% endif %}">
+                Outlet Register
+            </a>
+
+            <a href="{% url 'supervisor-products' %}"
+               class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-products' or request.resolver_match.url_name == 'supervisor-product-detail' or request.resolver_match.url_name == 'supervisor-product-edit' %}active{% endif %}">
+                Basket Item Register
+            </a>
+
+            <a href="{% url 'supervisor-collection-items' %}"
+               class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-collection-items' or request.resolver_match.url_name == 'supervisor-collection-item-detail' or request.resolver_match.url_name == 'supervisor-collection-item-edit' %}active{% endif %}">
+                Outlet Item Register
+            </a>
+
+            <a href="{% url 'supervisor-assignments' %}"
+            class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-assignments' %}active{% endif %}">
+                Assigned Outlets
+            </a>
+
+            <a href="{% url 'supervisor-small-assignment' %}"
+                class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-small-assignment' %}active{% endif %}">
+                    Small Outlet Assignments
+            </a>
+
+            <a href="{% url 'supervisor-large-assignment' %}"
+                class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-large-assignment' %}active{% endif %}">
+                    Large Outlet Assignments
+            </a>
+
+            <a href="{% url 'supervisor-reviews' %}"
+               class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-reviews' or request.resolver_match.url_name == 'supervisor-review-outlet' %}active{% endif %}">
+                Review Completed outlets
+            </a>
+
+            <a href="{% url 'supervisor-replacements' %}"
+               class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-replacements' %}active{% endif %}">
+                Approve Replacements
+            </a>
+
+        {% endif %}
+
+
+        <!-- Available to Admin, Supervisor and Viewer -->
+        <a href="{% url 'supervisor-progress' %}"
+           class="nav-link-custom {% if request.resolver_match.url_name == 'supervisor-progress' %}active{% endif %}">
+            Collection Monitoring
+        </a>
+
+        <a href="#"
+           class="nav-link-custom">
+            Price Outliers
+        </a>
+
+        <a href="#"
+           class="nav-link-custom">
+            Reports &amp; Exports
+        </a>
+
+
+        <!-- Available only to Administrator -->
+        {% if request.user.cpi_profile.is_admin %}
+
+            <a href="{% url 'supervisor-users' %}"
+               class="nav-link-custom {% if 'supervisor-user' in request.resolver_match.url_name %}active{% endif %}">
+                User Management
+            </a>
+
+        {% endif %}
+
+
+        <hr class="text-white opacity-25">
+
+
+        <a href="{% url 'supervisor-logout' %}"
+           class="nav-link-custom">
+            Logout
+        </a>
+
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1">
+
+        <!-- Top Bar -->
+        <div class="topbar d-flex justify-content-between align-items-center">
+
+            <h4 class="mb-0">
+                {% block page_title %}Dashboard{% endblock %}
+            </h4>
+
+            <div class="d-flex align-items-center gap-2">
+
+                <span aria-hidden="true">👤</span>
+
+                <strong>
+                    {{ request.user.cpi_profile.full_name }}
+                </strong>
+
+                <span class="text-muted">
+                    |
+                    {{ request.user.cpi_profile.get_role_display }}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Page Content -->
+        <div class="content-area">
+
+            {% if messages %}
+                {% for message in messages %}
+
+                    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags|default:'info' }}{% endif %} alert-dismissible fade show"
+                         role="alert">
+
+                        {{ message }}
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="alert"
+                                aria-label="Close">
+                        </button>
+
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Basket Item Detail{% endblock %}
+{% block page_title %}Basket Item Detail{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'supervisor-products' %}"
+   class="btn btn-sm btn-outline-secondary mb-3">
+    ← Back to Basket Item Register
+</a>
+
+<div class="card dashboard-card mb-4">
+    <div class="card-header bg-white">
+        <strong>
+            {{ product.basket_item_name|default:product.description }}
+        </strong>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row mb-3">
+
+            <div class="col-md-3">
+                <strong>Basket Item Code</strong><br>
+                {{ product.basket_item_code|default:product.basket_code }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>COICOP 2016</strong><br>
+                {{ product.coicop_2016|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Division</strong><br>
+                {{ product.coicop_division_code|default:"-" }}
+                -
+                {{ product.coicop_division_name|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Status</strong><br>
+
+                {% if product.is_active %}
+                    <span class="badge bg-success">Active</span>
+                {% else %}
+                    <span class="badge bg-secondary">Inactive</span>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-3">
+                <strong>Group</strong><br>
+                {{ product.coicop_group_code|default:"-" }}
+                -
+                {{ product.coicop_group_name|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Class</strong><br>
+                {{ product.coicop_class_code|default:"-" }}
+                -
+                {{ product.coicop_class_name|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Subclass</strong><br>
+                {{ product.coicop_subclass_code|default:"-" }}
+                -
+                {{ product.coicop_subclass_name|default:"-" }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Display Order</strong><br>
+                {{ product.display_order|default:"-" }}
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <strong>Description</strong><br>
+                {{ product.description|default:"-" }}
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="card dashboard-card">
+
+    <div class="card-header bg-white">
+        <strong>Collection Items Used in Outlets</strong>
+        <span class="text-muted small">
+            ({{ collection_items.count }} records)
+        </span>
+    </div>
+
+    <div class="card-body p-0">
+
+        <div class="table-responsive">
+
+            <table class="table table-sm table-hover mb-0">
+
+                <thead>
+                    <tr>
+                        <th>Outlet Code</th>
+                        <th>Outlet Name</th>
+                        <th>Product Code</th>
+                        <th>Product Name</th>
+                        <th>Brand</th>
+                        <th>Product Specification</th>
+                        <th>Last Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for item in collection_items %}
+                    <tr>
+
+                        <td>
+                            {{ item.outlet.outlet_code|default:"-" }}
+                        </td>
+
+                        <td>
+                            {{ item.outlet.outlet_name|default:"-" }}
+                        </td>
+
+                        <td>
+                            {{ item.product_code|default:"-" }}
+                        </td>
+
+                        <td>
+                            {{ item.product_name|default:"-" }}
+                        </td>
+
+                        <td>
+                            {{ item.brand|default:"-" }}
+                        </td>
+
+                        <td style="white-space: pre-line;">
+                            {{ item.product_specification|default:"-" }}
+                        </td>
+
+                        <td>
+                            {{ item.last_price|default:"-" }}
+                        </td>
+
+                        <td>
+                            {% if item.is_active %}
+                                <span class="badge bg-success">
+                                    Active
+                                </span>
+                            {% else %}
+                                <span class="badge bg-secondary">
+                                    Inactive
+                                </span>
+                            {% endif %}
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="8" class="text-center py-4">
+                            This basket item is not currently linked to any collection item.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

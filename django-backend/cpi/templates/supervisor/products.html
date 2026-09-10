@@ -1,0 +1,167 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Basket Item Register{% endblock %}
+{% block page_title %}Basket Item Register{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-end align-items-center mb-3">
+    <button class="btn btn-primary">
+        + Add Basket Item
+    </button>
+</div>
+
+<form method="get" class="row g-2 mb-3">
+
+    <div class="col-md-5">
+        <input
+            type="text"
+            name="search"
+            value="{{ search }}"
+            class="form-control"
+            placeholder="Search basket code, product name or COICOP"
+        >
+    </div>
+
+    <div class="col-md-3">
+        <select name="group" class="form-select">
+            <option value="">All Divisions</option>
+
+            {% for group in groups %}
+            <option
+                value="{{ group.group_code }}"
+                {% if selected_group == group.group_code %}selected{% endif %}
+            >
+                {{ group.group_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <select name="status" class="form-select">
+            <option value="">All Status</option>
+
+            <option
+                value="active"
+                {% if selected_status == "active" %}selected{% endif %}
+            >
+                Active
+            </option>
+
+            <option
+                value="inactive"
+                {% if selected_status == "inactive" %}selected{% endif %}
+            >
+                Inactive
+            </option>
+        </select>
+    </div>
+
+    <div class="col-md-2 d-flex gap-2">
+        <button class="btn btn-primary w-100">
+            Filter
+        </button>
+
+        <a
+            href="{% url 'supervisor-products' %}"
+            class="btn btn-outline-secondary"
+        >
+            Clear
+        </a>
+    </div>
+
+</form>
+
+<div class="card">
+    <div class="card-body p-0">
+
+        <table class="table table-hover mb-0">
+
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Product Name</th>
+                    <th>Division</th>
+                    <th>Description</th>
+                    <th>COICOP</th>
+                    <th>Collection Items</th>
+                    <th>Status</th>
+                    <th width="220">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for product in products %}
+                <tr>
+
+                    <td>
+                        {{ product.basket_item_code|default:product.basket_code }}
+                    </td>
+
+                    <td>
+                        {{ product.basket_item_name|default:product.description }}
+                    </td>
+
+                    <td>
+                        {{ product.coicop_division_name|default:"-" }}
+                    </td>
+
+                    <td>
+                        {{ product.description|default:"-" }}
+                    </td>
+
+                    <td>
+                        {{ product.coicop_2016|default:"-" }}
+                    </td>
+
+                    <td>
+                        {{ product.collection_item_count|default:0 }}
+                    </td>
+
+                    <td>
+                        {% if product.is_active %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Inactive</span>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        <a
+                            href="{% url 'supervisor-product-detail' product.basket_id %}"
+                            class="btn btn-sm btn-outline-primary"
+                        >
+                            View
+                        </a>
+
+                        <a
+                            href="{% url 'supervisor-product-edit' product.basket_id %}"
+                            class="btn btn-sm btn-outline-secondary"
+                        >
+                            Edit
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+                    <td colspan="8" class="text-center py-4">
+                        No products found
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

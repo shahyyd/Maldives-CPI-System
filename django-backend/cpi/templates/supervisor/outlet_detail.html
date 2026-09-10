@@ -1,0 +1,121 @@
+{% extends "supervisor/base.html" %}
+
+{% block title %}Outlet Details{% endblock %}
+{% block page_title %}Outlet Details{% endblock %}
+
+{% block content %}
+
+<div class="mb-3">
+    <a href="{% url 'supervisor-outlets' %}" class="btn btn-sm btn-outline-secondary">
+        ← Back to Outlets
+    </a>
+</div>
+
+<div class="card dashboard-card mb-4">
+    <div class="card-header bg-white">
+        <strong>{{ outlet.outlet_name }}</strong>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+                <strong>Outlet Code</strong><br>
+                {{ outlet.outlet_code }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Island</strong><br>
+                {{ outlet.island.island_name }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Outlet Type</strong><br>
+                {{ outlet.outlet_type.outlet_type_name }}
+            </div>
+
+            <div class="col-md-3">
+                <strong>Status</strong><br>
+                {% if outlet.is_active %}
+                    <span class="badge bg-success">Active</span>
+                {% else %}
+                    <span class="badge bg-secondary">Inactive</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card dashboard-card">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <div>
+            <strong>Collection Items</strong>
+            <span class="text-muted small">({{ items.count }} items)</span>
+        </div>
+
+        <div>
+            <a href="{% url 'supervisor-outlet-add-item' outlet.outlet_id %}"
+            class="btn btn-sm btn-primary">
+                + Add Item
+            </a>
+
+            <button class="btn btn-sm btn-outline-secondary" disabled>
+                Upload Items
+            </button>
+
+            <button class="btn btn-sm btn-outline-secondary" disabled>
+                Copy From Outlet
+            </button>
+        </div>
+    </div>
+
+    <div class="card-body p-0">
+        <table class="table table-sm table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>Basket Item</th>
+                    <th>Product Name</th>
+                    <th>Specification</th>
+                    <th>COICOP Subclass</th>
+                    <th>Last Price</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>
+                        {{ item.basket_item.basket_item_code|default:"-" }}
+                        -
+                        {{ item.basket_item.basket_item_name|default:item.matched_basket_name }}
+                    </td>
+                    <td>{{ item.product_name }}</td>
+                    <td>{{ item.product_specification|truncatechars:80 }}</td>
+                    <td>
+                        {{ item.basket_item.coicop_subclass_code|default:"-" }}
+                        -
+                        {{ item.basket_item.coicop_subclass_name|default:"-" }}
+                    </td>
+                    <td>{{ item.last_price|default:"-" }}</td>
+                    <td>
+                        {% if item.is_active %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Inactive</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center py-4">
+                        No collection items found for this outlet.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+{% endblock %}
